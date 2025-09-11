@@ -1,0 +1,143 @@
+[gd_scene load_steps=11 format=3 uid="uid://b7xe7adlddrp4"]
+
+[ext_resource type="Script" uid="uid://ceo1xe6iy0pet" path="res://scenes/sound_match_control.gd" id="1_ybmvc"]
+[ext_resource type="Texture2D" uid="uid://cnn1eaxg1rcg8" path="res://assets/objects/man-detective-medium-skin-tone-svgrepo-com.svg" id="2_vkf3b"]
+[ext_resource type="Script" uid="uid://pexaj3kc1mft" path="res://magnify_glass.gd" id="3_kfj5c"]
+
+[sub_resource type="GDScript" id="GDScript_8l4mk"]
+script/source = "extends Node2D
+
+func _on_drag(dragging: bool):
+	print(\"Signal received!\", dragging)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dojv"]
+size = Vector2(125, 126)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_67xid"]
+bg_color = Color(0.972549, 0.796078, 0.501961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2rieu"]
+bg_color = Color(0.972549, 0.796078, 0.501961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wy33e"]
+bg_color = Color(0.972549, 0.796078, 0.501961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu4lu"]
+bg_color = Color(0.972549, 0.796078, 0.501961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkf3b"]
+bg_color = Color(0.439216, 0.670588, 0.435294, 1)
+
+[node name="SoundMatchControl" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ybmvc")
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(196, 156)
+script = SubResource("GDScript_8l4mk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+z_index = 1
+position = Vector2(389, 157)
+scale = Vector2(0.2, 0.187)
+texture = ExtResource("2_vkf3b")
+script = ExtResource("3_kfj5c")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Sprite2D"]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_8dojv")
+
+[node name="DropZones" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TopLeft" type="Panel" parent="DropZones" groups=["drop_zones"]]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 256.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_67xid")
+
+[node name="Label" type="Label" parent="DropZones/TopLeft"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 254.0
+offset_bottom = 254.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TopRight" type="Panel" parent="DropZones" groups=["drop_zones"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 895.0
+offset_top = 2.0
+offset_right = 1131.0
+offset_bottom = 238.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2rieu")
+
+[node name="Label" type="Label" parent="DropZones/TopRight"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 255.0
+offset_bottom = 258.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BottomRight" type="Panel" parent="DropZones" groups=["drop_zones"]]
+layout_mode = 0
+offset_left = 893.0
+offset_top = 390.0
+offset_right = 1149.0
+offset_bottom = 646.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wy33e")
+
+[node name="Label" type="Label" parent="DropZones/BottomRight"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 255.0
+offset_bottom = 254.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BottomLeft" type="Panel" parent="DropZones" groups=["drop_zones"]]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 390.0
+offset_right = 259.0
+offset_bottom = 646.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pu4lu")
+
+[node name="Label" type="Label" parent="DropZones/BottomLeft"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 254.0
+offset_bottom = 255.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RefPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Background" type="Panel" parent="."]
+z_index = -2
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vkf3b")

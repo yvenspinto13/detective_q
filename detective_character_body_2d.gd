@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed: float = 200.0
 var gate_triggered: bool = false
 
-signal gate_touched
+signal puzzle_touched
 
 func _physics_process(delta: float) -> void:
 	var direction := Vector2.ZERO
@@ -35,4 +35,4 @@ func _physics_process(delta: float) -> void:
 				if tile_id_x == 10:
 					print("Gate")
 					gate_triggered = true
-					emit_signal("gate_touched")
+					emit_signal("puzzle_touched", "SoundMatchScene")

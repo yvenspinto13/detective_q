@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=3 uid="uid://bjhacrsxuv7cj"]
 
-[ext_resource type="Texture2D" uid="uid://x0fbdjl6dwsa" path="res://assets/tiles/grass-tile.png" id="1_0e48y"]
-[ext_resource type="Texture2D" uid="uid://bg1g0jm76wgpl" path="res://assets/objects/lock-gate.png" id="1_epypp"]
-[ext_resource type="Script" uid="uid://dqx1xxautyunl" path="res://main.gd" id="1_kdubu"]
-[ext_resource type="Texture2D" uid="uid://blefc707rpeh6" path="res://assets/tiles/path-tile.png" id="2_epypp"]
-[ext_resource type="Texture2D" uid="uid://3rap63tn6kb1" path="res://assets/objects/detective.png" id="4_0hol4"]
-[ext_resource type="Script" uid="uid://bkjibyyx81xuk" path="res://detective_character_body_2d.gd" id="4_q6r6c"]
+[ext_resource type="Script" uid="uid://dqx1xxautyunl" path="res://main.gd" id="1_a814b"]
+[ext_resource type="Texture2D" uid="uid://bg1g0jm76wgpl" path="res://assets/objects/lock-gate.png" id="2_5crlr"]
+[ext_resource type="Texture2D" uid="uid://x0fbdjl6dwsa" path="res://assets/tiles/grass-tile.png" id="3_hbc2u"]
+[ext_resource type="Texture2D" uid="uid://blefc707rpeh6" path="res://assets/tiles/path-tile.png" id="4_torvr"]
+[ext_resource type="Script" uid="uid://bkjibyyx81xuk" path="res://detective_character_body_2d.gd" id="5_8xkvn"]
+[ext_resource type="Texture2D" uid="uid://3rap63tn6kb1" path="res://assets/objects/detective.png" id="6_p5x2j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hol4"]
 resource_name = "gate"
-texture = ExtResource("1_epypp")
+texture = ExtResource("2_5crlr")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 1:0/0 = 0
@@ -19,12 +19,12 @@ texture_region_size = Vector2i(128, 128)
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -37, -64, 2, -43, 2, -43, -36)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q6r6c"]
-texture = ExtResource("1_0e48y")
+texture = ExtResource("3_hbc2u")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kdubu"]
-texture = ExtResource("2_epypp")
+texture = ExtResource("4_torvr")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 
@@ -36,7 +36,7 @@ sources/8 = SubResource("TileSetAtlasSource_kdubu")
 sources/10 = SubResource("TileSetAtlasSource_0hol4")
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_kdubu")
+script = ExtResource("1_a814b")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_kdubu")
@@ -50,12 +50,18 @@ layer_1/tile_data = PackedInt32Array(2, 10, 0, 65538, 10, 1, 3, 65546, 0, 65539,
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(-209, -866)
 collision_layer = 2
-script = ExtResource("4_q6r6c")
+script = ExtResource("5_8xkvn")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(308, 1103)
-texture = ExtResource("4_0hol4")
+texture = ExtResource("6_p5x2j")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
 polygon = PackedVector2Array(269, 992, 227, 1100, 232, 1172, 227, 1218, 353, 1222, 372, 1107, 388, 1062, 361, 1020, 305, 974)
+
+[node name="PuzzleContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
