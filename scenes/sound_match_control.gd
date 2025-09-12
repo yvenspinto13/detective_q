@@ -69,7 +69,7 @@ func _receive_drop(drop_target: Panel) -> void:
 		if isSuccess:
 			old_drop.border_color = Color(0, 1, 0)
 			await get_tree().create_timer(2.0).timeout
-			emit_signal("puzzle_completed", "clue")
+			emit_signal("puzzle_completed", "gate" )
 		else: 
 			old_drop.border_color = Color(1, 0, 0)
 

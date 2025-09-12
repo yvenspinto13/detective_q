@@ -35,4 +35,4 @@ func _physics_process(delta: float) -> void:
 				if tile_id_x == 10:
 					print("Gate")
 					gate_triggered = true
-					emit_signal("puzzle_touched", "SoundMatchScene")
+					emit_signal("puzzle_touched", "SoundMatchScene", tile_id_x)
