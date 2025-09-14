@@ -1,4 +1,5 @@
 extends Node2D
+signal puzzle_completed(puzzle_name: String)
 
 # Quick references
 @onready var letters_container := $UI/PuzzleUI/LettersContainer
@@ -50,10 +51,10 @@ func check_word() -> void:
 	if word.length() == CORRECT_WORD.length():
 		if word == CORRECT_WORD:
 			print("✅ Puzzle solved!")
-			get_tree().change_scene_to_file("res://scenes/Success.tscn")
+			emit_signal("puzzle_completed", "tree_house")  # success path
 		else:
-			print("❌ Wrong word!")
-			get_tree().change_scene_to_file("res://scenes/Failure.tscn")
+			print("❌ Wrong word! Resetting...")
+			reset_puzzle()  # clear slots and allow retry
 
 func reset_puzzle() -> void:
 	# clear slots and re-enable all letters

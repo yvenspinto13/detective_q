@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bceqtogat538a"]
+[gd_scene load_steps=9 format=3 uid="uid://bceqtogat538a"]
 
 [ext_resource type="Script" uid="uid://dem6gi0m7wbc4" path="res://scenes/word_build_scene.gd" id="1_kwfl5"]
 [ext_resource type="Texture2D" uid="uid://bftfys6jelsnr" path="res://assets/PuzzleBackground.png" id="2_snjmf"]
@@ -41,18 +41,6 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwkwi"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yuec"]
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 3
@@ -66,6 +54,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [node name="WordBuildScene" type="Node2D"]
+position = Vector2(2, 0)
 script = ExtResource("1_kwfl5")
 
 [node name="UI" type="Control" parent="."]
@@ -121,6 +110,11 @@ size_flags_horizontal = 4
 [node name="Slot1" type="Button" parent="UI/PuzzleUI/SlotsContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 70
 theme_override_styles/focus = ExtResource("3_ckeks")
@@ -134,12 +128,22 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_snjmf")
 [node name="Slot2" type="Button" parent="UI/PuzzleUI/SlotsContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_ckeks")
 
 [node name="Slot3" type="Button" parent="UI/PuzzleUI/SlotsContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_oiww4")
 
@@ -150,6 +154,10 @@ size_flags_horizontal = 4
 [node name="LetterC" type="Button" parent="UI/PuzzleUI/LettersContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
 theme_override_styles/focus = ExtResource("3_ckeks")
 theme_override_styles/hover_pressed_mirrored = ExtResource("3_ckeks")
@@ -163,13 +171,35 @@ text = "A"
 [node name="LetterA" type="Button" parent="UI/PuzzleUI/LettersContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
-theme_override_styles/normal = SubResource("StyleBoxFlat_cwkwi")
+theme_override_styles/hover_pressed_mirrored = ExtResource("3_ckeks")
+theme_override_styles/hover_pressed = ExtResource("3_ckeks")
+theme_override_styles/hover_mirrored = ExtResource("3_ckeks")
+theme_override_styles/hover = ExtResource("3_ckeks")
+theme_override_styles/pressed_mirrored = ExtResource("3_ckeks")
+theme_override_styles/pressed = ExtResource("3_ckeks")
+theme_override_styles/normal = ExtResource("4_oiww4")
 text = "C"
 
 [node name="LetterT" type="Button" parent="UI/PuzzleUI/LettersContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = ExtResource("3_ckeks")
+theme_override_styles/hover_pressed_mirrored = ExtResource("3_ckeks")
+theme_override_styles/hover_pressed = ExtResource("3_ckeks")
+theme_override_styles/hover = ExtResource("3_ckeks")
+theme_override_styles/pressed_mirrored = ExtResource("3_ckeks")
+theme_override_styles/pressed = ExtResource("3_ckeks")
+theme_override_styles/normal_mirrored = ExtResource("4_oiww4")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3yuec")
 text = "T"
