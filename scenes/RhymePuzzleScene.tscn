@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7n1bkhyplv16"]
+
+[ext_resource type="Script" uid="uid://5suw41l3vsml" path="res://scenes/rhyme_puzzle_scene.gd" id="1_4usx6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4usx6"]
+bg_color = Color(0.439216, 0.670588, 0.435294, 1)
+
+[node name="RhymePuzzle" type="Node2D"]
+script = ExtResource("1_4usx6")
+
+[node name="PuzzleArea" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="Panel" parent="PuzzleArea"]
+z_index = -2
+offset_right = 1153.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4usx6")
+
+[node name="WordPairs" type="Node2D" parent="."]
+
+[node name="Feedback" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

@@ -43,6 +43,7 @@ func _on_puzzle_complete(puzzle: String) -> void:
 	mark_and_update_tile_call.call(puzzle, current_puzzle_tile)
 	puzzle_container.remove_child(puzzle_instance)
 	_set_main_level_visibility(true)
+	player.gate_triggered = false
 
 func mark_solved(key: String) -> void:
 	if puzzles_solved.has(key):

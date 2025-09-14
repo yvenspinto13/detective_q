@@ -5,12 +5,7 @@ signal puzzle_completed(clue_id: String)
 
 @export var clue_id: String = "cat_collar"  # set in editor per-puzzle
 # Option list: name + path to audio (edit these to match your files)
-var options_data := [
-	{"name":"Dog",  "path":"res://audio/dog.ogg"},
-	{"name":"Cat",  "path":"res://audio/cat.ogg"},
-	{"name":"Bird", "path":"res://audio/baby_chicken.ogg"},
-	{"name":"Lion", "path":"res://audio/lion.ogg"}
-]
+var options_data := ["cat", "hat", "rat", "bat"]
 
 # runtime
 var shuffled := []
@@ -39,16 +34,15 @@ func _setup_round() -> void:
 	# create shuffled copy
 	shuffled = options_data.duplicate()
 	shuffled.shuffle()
-	correct_index = randi() % shuffled.size()
-	# load reference stream
-	var ref_path = shuffled[correct_index]["path"]
+	# load reference stream, this should be based on level
+	var ref_path = "res://audio/cat.ogg"
 	ref_player.stream = load(ref_path)
 	# Assign shuffled words to zone labels
 	for i in zones.size():
 		var zone = zones[i]
 		var label = zone.get_node("Label")
 		print("assign label", label)
-		label.text = shuffled[i]["name"]
+		label.text = shuffled[i]
 	ref_player.play()
 
 func _receive_drop(drop_target: Panel) -> void:
@@ -56,7 +50,7 @@ func _receive_drop(drop_target: Panel) -> void:
 		print("received", drop_target)
 		var label = drop_target.get_node("Label")
 		var isSuccess = false
-		if label.text == shuffled[correct_index]["name"]:
+		if label.text == "cat":
 			print("success")
 			isSuccess = true
 		
@@ -68,7 +62,7 @@ func _receive_drop(drop_target: Panel) -> void:
 		old_drop.border_width_bottom = 5
 		if isSuccess:
 			old_drop.border_color = Color(0, 1, 0)
-			await get_tree().create_timer(2.0).timeout
+			await get_tree().create_timer(1.0).timeout
 			emit_signal("puzzle_completed", "gate" )
 		else: 
 			old_drop.border_color = Color(1, 0, 0)
