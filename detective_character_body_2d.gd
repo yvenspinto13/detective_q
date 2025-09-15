@@ -40,3 +40,7 @@ func _physics_process(delta: float) -> void:
 					print("Gate")
 					gate_triggered = true
 					emit_signal("puzzle_touched", "RhymePuzzleScene", tile_id_x)
+				elif tile_id_x == 3:
+					print("Gate")
+					gate_triggered = true
+					emit_signal("puzzle_touched", "WordBuildScene", tile_id_x)

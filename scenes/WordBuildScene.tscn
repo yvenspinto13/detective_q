@@ -1,0 +1,207 @@
+[gd_scene load_steps=9 format=3 uid="uid://bceqtogat538a"]
+
+[ext_resource type="Script" uid="uid://dem6gi0m7wbc4" path="res://scenes/word_build_scene.gd" id="1_kwfl5"]
+[ext_resource type="Texture2D" uid="uid://bftfys6jelsnr" path="res://assets/PuzzleBackground.png" id="2_snjmf"]
+[ext_resource type="StyleBox" uid="uid://dwb051t4o6thg" path="res://scenes/LettersSelected.tres" id="3_ckeks"]
+[ext_resource type="StyleBox" uid="uid://8pv5iam0xq8o" path="res://scenes/Letters.tres" id="4_oiww4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_snjmf"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ckeks"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oiww4"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yuec"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="WordBuildScene" type="Node2D"]
+position = Vector2(2, 0)
+script = ExtResource("1_kwfl5")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="Sprite2D" parent="UI"]
+position = Vector2(542.5, 320.5)
+scale = Vector2(0.802734, 0.663086)
+texture = ExtResource("2_snjmf")
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+custom_minimum_size = Vector2(454, 0)
+layout_mode = 1
+anchors_preset = -1
+offset_left = 438.0
+offset_top = 8.0
+offset_right = 1142.0
+offset_bottom = 338.0
+color = Color(1, 1, 1, 0.607843)
+
+[node name="PuzzleUI" type="VBoxContainer" parent="UI"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 12.0
+anchor_top = 0.5
+anchor_right = 100.0
+anchor_bottom = 10.0
+offset_left = -26.0
+offset_top = -6.0
+offset_right = -2863.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="UI/PuzzleUI"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Arrange the letters to form a word!"
+
+[node name="SlotsContainer" type="HBoxContainer" parent="UI/PuzzleUI"]
+custom_minimum_size = Vector2(0, 100)
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Slot1" type="Button" parent="UI/PuzzleUI/SlotsContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = ExtResource("3_ckeks")
+theme_override_styles/hover_pressed_mirrored = ExtResource("3_ckeks")
+theme_override_styles/hover_pressed = ExtResource("3_ckeks")
+theme_override_styles/hover = ExtResource("3_ckeks")
+theme_override_styles/pressed_mirrored = ExtResource("3_ckeks")
+theme_override_styles/pressed = ExtResource("3_ckeks")
+theme_override_styles/normal = SubResource("StyleBoxFlat_snjmf")
+
+[node name="Slot2" type="Button" parent="UI/PuzzleUI/SlotsContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_ckeks")
+
+[node name="Slot3" type="Button" parent="UI/PuzzleUI/SlotsContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_oiww4")
+
+[node name="LettersContainer" type="HBoxContainer" parent="UI/PuzzleUI"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="LetterC" type="Button" parent="UI/PuzzleUI/LettersContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = ExtResource("3_ckeks")
+theme_override_styles/hover_pressed_mirrored = ExtResource("3_ckeks")
+theme_override_styles/hover_pressed = ExtResource("3_ckeks")
+theme_override_styles/hover = ExtResource("3_ckeks")
+theme_override_styles/pressed_mirrored = ExtResource("3_ckeks")
+theme_override_styles/pressed = ExtResource("3_ckeks")
+theme_override_styles/normal = ExtResource("4_oiww4")
+text = "A"
+
+[node name="LetterA" type="Button" parent="UI/PuzzleUI/LettersContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+theme_override_styles/hover_pressed_mirrored = ExtResource("3_ckeks")
+theme_override_styles/hover_pressed = ExtResource("3_ckeks")
+theme_override_styles/hover_mirrored = ExtResource("3_ckeks")
+theme_override_styles/hover = ExtResource("3_ckeks")
+theme_override_styles/pressed_mirrored = ExtResource("3_ckeks")
+theme_override_styles/pressed = ExtResource("3_ckeks")
+theme_override_styles/normal = ExtResource("4_oiww4")
+text = "C"
+
+[node name="LetterT" type="Button" parent="UI/PuzzleUI/LettersContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = ExtResource("3_ckeks")
+theme_override_styles/hover_pressed_mirrored = ExtResource("3_ckeks")
+theme_override_styles/hover_pressed = ExtResource("3_ckeks")
+theme_override_styles/hover = ExtResource("3_ckeks")
+theme_override_styles/pressed_mirrored = ExtResource("3_ckeks")
+theme_override_styles/pressed = ExtResource("3_ckeks")
+theme_override_styles/normal_mirrored = ExtResource("4_oiww4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3yuec")
+text = "T"

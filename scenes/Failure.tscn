@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://rba2lqeuwu6o"]
+
+[ext_resource type="Script" uid="uid://b8ulqq8wyhex" path="res://scenes/failure.gd" id="1_3td5n"]
+[ext_resource type="Texture2D" uid="uid://dalojw2j34dl8" path="res://assets/TryAgain.png" id="3_v7x0j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3td5n"]
+bg_color = Color(0.999971, 0.113953, 0.281005, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Failure" type="Node2D"]
+script = ExtResource("1_3td5n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(573, 324.75)
+scale = Vector2(1.15039, 1.00512)
+texture = ExtResource("3_v7x0j")
+
+[node name="TryAgain" type="Button" parent="Sprite2D"]
+offset_left = -145.168
+offset_top = 196.245
+offset_right = 194.832
+offset_bottom = 298.245
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_3td5n")
+text = "Try Again!"

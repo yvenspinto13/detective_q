@@ -15,6 +15,10 @@ run/main_scene="uid://bjhacrsxuv7cj"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[dotnet]
+
+project/assembly_name="detectivex"
+
 [rendering]
 
 renderer/rendering_method="mobile"
