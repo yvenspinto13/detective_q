@@ -25,6 +25,14 @@ var word_pieces: Array = []
 
 @onready var ref_player: AudioStreamPlayer = $RefPlayer
 
+func play_confetti():
+	var confetti = preload("res://scenes/effect.tscn").instantiate()
+	confetti.position = get_viewport().get_visible_rect().size / 2
+	add_child(confetti)
+	# Get the actual CPUParticles2D inside the scene
+	var particles = confetti.get_node("Particles")  # child node
+	particles.emitting = true
+
 func _ready() -> void:
 	# build UI and start the round
 	randomize()
@@ -62,6 +70,7 @@ func _receive_drop(drop_target: Panel) -> void:
 		old_drop.border_width_bottom = 5
 		if isSuccess:
 			old_drop.border_color = Color(0, 1, 0)
+			play_confetti()
 			await get_tree().create_timer(1.0).timeout
 			emit_signal("puzzle_completed", "gate" )
 		else: 

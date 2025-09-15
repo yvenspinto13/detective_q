@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cus22vtp5b3p7" path="res://assets/objects/cat_collar.png" id="7_yvb8b"]
 [ext_resource type="Texture2D" uid="uid://bskpl03rxoar" path="res://assets/objects/cat.png" id="8_3hf6u"]
 [ext_resource type="Texture2D" uid="uid://blwc8ouubvkdu" path="res://assets/objects/tree_clue.png" id="9_4mcbk"]
-[ext_resource type="PackedScene" uid="uid://b5ro8jrpm8nm6" path="res://scenes/VirtualJoystick.tscn" id="15_mctxq"]
+[ext_resource type="PackedScene" path="res://scenes/VirtualJoystick.tscn" id="15_mctxq"]
 [ext_resource type="FontFile" uid="uid://cm8s8qyrojjmu" path="res://hey_comic/Hey Comic.otf" id="16_nm5af"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_torvr"]

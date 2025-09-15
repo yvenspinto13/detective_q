@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cydxyqbv05xyy"]
+[gd_scene load_steps=5 format=3 uid="uid://dsrt7dbq3jqjp"]
 
 [ext_resource type="Script" uid="uid://1flb0mo1k87h" path="res://scenes/letter_hunt_scene.gd" id="1_djlqp"]
 [ext_resource type="FontFile" uid="uid://cm8s8qyrojjmu" path="res://hey_comic/Hey Comic.otf" id="2_5pv8t"]
@@ -30,6 +30,7 @@ layout_mode = 2
 columns = 4
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
 offset_left = -1.0
 offset_top = 2.0
 offset_right = 1151.0
@@ -47,6 +48,7 @@ vertical_alignment = 1
 [node name="Background" type="Panel" parent="."]
 z_index = -2
 z_as_relative = false
+layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 648.0
 mouse_filter = 2

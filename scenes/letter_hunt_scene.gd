@@ -27,6 +27,14 @@ var _expected_counts: Dictionary = {}   # expected occurrences per target letter
 var _collected_counts: Dictionary = {}  # counts collected so far per target letter
 var custom_font = preload("res://hey_comic/Hey Comic.ttf")
 
+func play_confetti():
+	var confetti = preload("res://scenes/effect.tscn").instantiate()
+	confetti.position = get_viewport().get_visible_rect().size / 2
+	add_child(confetti)
+	# Get the actual CPUParticles2D inside the scene
+	var particles = confetti.get_node("Particles")  # child node
+	particles.emitting = true
+
 func _ready() -> void:
 	randomize()
 	if target_pair.size() < 1 or target_pair.size() > 2:
@@ -203,6 +211,8 @@ func _on_puzzle_complete() -> void:
 	if has_node("CelebratePlayer"):
 		$CelebratePlayer.play("celebrate")
 	print("puzzle complete")
+	play_confetti()
+	await get_tree().create_timer(1.0).timeout
 	emit_signal("puzzle_completed", "signboard")
 
 # --- distractor builder (biased to confusing letters) ---
