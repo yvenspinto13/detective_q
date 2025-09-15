@@ -1,28 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://0r7b1cjc025o"]
+[gd_scene load_steps=3 format=3 uid="uid://0r7b1cjc025o"]
 
-[ext_resource type="Script" uid="uid://dnhhvis4y77qd" path="res://scenes/success.gd" id="1_gtmim"]
-[ext_resource type="StyleBox" uid="uid://bq7bd3dvdhumt" path="res://scenes/Next.tres" id="3_glyff"]
 [ext_resource type="Texture2D" uid="uid://dds1b12jb7tk7" path="res://assets/Congratulations.png" id="3_rbb0j"]
 
+[sub_resource type="GDScript" id="GDScript_w1pau"]
+script/source = "extends Node2D
+
+@onready var next_button = $Sprite2D/Next  # adjust path
+
+func _ready():
+	if next_button:
+		next_button.pressed.connect(_on_next_pressed)
+
+func _on_next_pressed():
+	print(\"Next pressed, going to next question\")
+	get_tree().change_scene_to_file(\"res://node_2d.tscn\") # or another puzzle
+"
+
 [node name="Success" type="Node2D"]
-script = ExtResource("1_gtmim")
+script = SubResource("GDScript_w1pau")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(575, 328)
 scale = Vector2(1.15332, 1.00549)
 texture = ExtResource("3_rbb0j")
-
-[node name="Next" type="Button" parent="Sprite2D"]
-offset_left = -70.232
-offset_top = 173.05
-offset_right = 96.768
-offset_bottom = 275.05
-theme_override_font_sizes/font_size = 70
-theme_override_styles/focus = ExtResource("3_glyff")
-theme_override_styles/hover_pressed_mirrored = ExtResource("3_glyff")
-theme_override_styles/hover_pressed = ExtResource("3_glyff")
-theme_override_styles/hover_mirrored = ExtResource("3_glyff")
-theme_override_styles/hover = ExtResource("3_glyff")
-theme_override_styles/pressed = ExtResource("3_glyff")
-theme_override_styles/normal = ExtResource("3_glyff")
-text = "Next"

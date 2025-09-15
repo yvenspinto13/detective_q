@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8smskk8gku2b"]
+
+[ext_resource type="Texture2D" uid="uid://dds1b12jb7tk7" path="res://assets/Congratulations.png" id="1_jjwvr"]
+
+[node name="Congratulations" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(568, 315.25)
+scale = Vector2(1.19727, 0.989019)
+texture = ExtResource("1_jjwvr")

@@ -10,6 +10,14 @@ var selected_letter : String = ""
 var selected_button : Button = null
 const CORRECT_WORD := "CAT"
 
+func play_confetti():
+	var confetti = preload("res://scenes/effect.tscn").instantiate()
+	confetti.position = get_viewport().get_visible_rect().size / 2
+	add_child(confetti)
+	# Get the actual CPUParticles2D inside the scene
+	var particles = confetti.get_node("Particles")  # child node
+	particles.emitting = true
+
 func _ready() -> void:
 	# connect letter buttons and slot buttons dynamically
 	for btn in letters_container.get_children():
@@ -51,6 +59,9 @@ func check_word() -> void:
 	if word.length() == CORRECT_WORD.length():
 		if word == CORRECT_WORD:
 			print("✅ Puzzle solved!")
+			play_confetti()
+			await get_tree().create_timer(1.0).timeout
+			get_tree().change_scene_to_file("res://scenes/Success.tscn")
 			emit_signal("puzzle_completed", "tree_house")  # success path
 		else:
 			print("❌ Wrong word! Resetting...")
