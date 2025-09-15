@@ -3,7 +3,7 @@ extends TileMap
 var puzzle_clueid: Dictionary = {
 	"gate": 0,
 	"toy_box": 4,
-	"tree_house": 6,
+	"tree_house": 5,
 	"signboard": 7,
 }
 

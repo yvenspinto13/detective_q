@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bjhacrsxuv7cj"]
+[gd_scene load_steps=26 format=3 uid="uid://bjhacrsxuv7cj"]
 
 [ext_resource type="Script" uid="uid://dqx1xxautyunl" path="res://main.gd" id="1_a814b"]
 [ext_resource type="Texture2D" uid="uid://bg1g0jm76wgpl" path="res://assets/objects/lock-gate.png" id="2_5crlr"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://c2og2hf76yw04" path="res://assets/objects/treehouse.png" id="6_3hf6u"]
 [ext_resource type="Texture2D" uid="uid://3rap63tn6kb1" path="res://assets/objects/detective.png" id="6_p5x2j"]
 [ext_resource type="Texture2D" uid="uid://cus22vtp5b3p7" path="res://assets/objects/cat_collar.png" id="7_yvb8b"]
+[ext_resource type="Texture2D" uid="uid://bskpl03rxoar" path="res://assets/objects/cat.png" id="8_3hf6u"]
+[ext_resource type="Texture2D" uid="uid://blwc8ouubvkdu" path="res://assets/objects/tree_clue.png" id="9_4mcbk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_torvr"]
 texture = ExtResource("2_hbc2u")
@@ -25,7 +27,6 @@ texture_region_size = Vector2i(128, 128)
 texture = ExtResource("3_p5x2j")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, 11, 3, 64, 64, 64, 64, 9)
 1:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
@@ -55,12 +56,28 @@ texture = ExtResource("6_3hf6u")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 25, -11, 26, -12, 64, -64, 64)
 0:1/0 = 0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -32, 64, 4, 64, -64, -12, -64)
 1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3hf6u"]
 texture = ExtResource("7_yvb8b")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x0cd2"]
+texture = ExtResource("8_3hf6u")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8s4c3"]
+texture = ExtResource("9_4mcbk")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 1:0/0 = 0
@@ -88,6 +105,8 @@ sources/1 = SubResource("TileSetAtlasSource_4mcbk")
 sources/2 = SubResource("TileSetAtlasSource_mctxq")
 sources/3 = SubResource("TileSetAtlasSource_nm5af")
 sources/4 = SubResource("TileSetAtlasSource_3hf6u")
+sources/5 = SubResource("TileSetAtlasSource_x0cd2")
+sources/6 = SubResource("TileSetAtlasSource_8s4c3")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_a814b")
@@ -97,9 +116,9 @@ tile_set = SubResource("TileSet_kdubu")
 collision_visibility_mode = 1
 format = 2
 layer_0/name = "ground"
-layer_0/tile_data = PackedInt32Array(65536, 7, 0, 0, 7, 0, 1, 7, 0, 65537, 7, 0, 65538, 7, 0, 2, 7, 0, 3, 7, 0, 65539, 7, 0, 196613, 7, 0, 262149, 8, 0, 262150, 8, 0, 196614, 7, 0, 196615, 7, 0, 262151, 8, 0, 262152, 8, 0, 196616, 8, 0, 196617, 7, 0, 262153, 7, 0, 65545, 7, 0, 65544, 7, 0, 65542, 7, 0, 65541, 7, 0, 5, 7, 0, 6, 7, 0, 7, 7, 0, 65543, 7, 0, 8, 7, 0, 9, 7, 0, 131072, 8, 0, 131073, 8, 0, 131074, 8, 0, 196610, 8, 0, 262146, 8, 0, 262147, 8, 0, 262148, 8, 0, 131077, 7, 0, 131078, 7, 0, 131079, 7, 0, 131080, 8, 0, 4, 7, 0, 65540, 7, 0, 131076, 7, 0, 131075, 7, 0, 196611, 7, 0, 196612, 7, 0, 131081, 8, 0, 196608, 7, 0, 196609, 7, 0, 262145, 7, 0, 262144, 7, 0)
+layer_0/tile_data = PackedInt32Array(65536, 7, 0, 0, 7, 0, 1, 7, 0, 65537, 7, 0, 65538, 7, 0, 2, 7, 0, 3, 7, 0, 65539, 7, 0, 196613, 7, 0, 262149, 8, 0, 262150, 8, 0, 196614, 7, 0, 196615, 8, 0, 262151, 8, 0, 65544, 7, 0, 65542, 7, 0, 65541, 7, 0, 5, 7, 0, 6, 7, 0, 7, 7, 0, 65543, 7, 0, 8, 7, 0, 131072, 8, 0, 131073, 8, 0, 131074, 8, 0, 196610, 8, 0, 262146, 8, 0, 262147, 8, 0, 262148, 8, 0, 131077, 7, 0, 131078, 7, 0, 131079, 8, 0, 131080, 8, 0, 4, 7, 0, 65540, 7, 0, 131076, 7, 0, 131075, 7, 0, 196611, 7, 0, 196612, 7, 0, 196608, 7, 0, 196609, 7, 0, 262145, 7, 0, 262144, 7, 0, 262152, 7, 0, 196616, 7, 0)
 layer_1/name = "infra"
-layer_1/tile_data = PackedInt32Array(1, 10, 0, 65537, 10, 1, 2, 65546, 0, 65538, 65546, 1, 131075, 2, 0, 196611, 2, 1, 131076, 65538, 0, 196612, 65538, 1, 131078, 3, 0, 196614, 3, 1, 131079, 65539, 0, 196615, 65539, 1, 8, 1, 0, 65544, 1, 1, 9, 65537, 0, 65545, 65537, 1)
+layer_1/tile_data = PackedInt32Array(1, 10, 0, 65537, 10, 1, 2, 65546, 0, 65538, 65546, 1, 131075, 2, 0, 196611, 2, 1, 131076, 65538, 0, 196612, 65538, 1, 131078, 65537, 0, 196614, 65537, 1, 131077, 1, 0, 196613, 1, 1, 7, 3, 0, 65543, 3, 1, 8, 65539, 0, 65544, 65539, 1)
 script = ExtResource("5_5crlr")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]

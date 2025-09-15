@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bceqtogat538a"]
+[gd_scene load_steps=9 format=3 uid="uid://bl4rtenkrlyxt"]
 
-[ext_resource type="Script" uid="uid://dem6gi0m7wbc4" path="res://scenes/word_build_scene.gd" id="1_kwfl5"]
+[ext_resource type="Script" path="res://scenes/word_build_scene.gd" id="1_kwfl5"]
 [ext_resource type="Texture2D" uid="uid://bftfys6jelsnr" path="res://assets/PuzzleBackground.png" id="2_snjmf"]
 [ext_resource type="StyleBox" uid="uid://dwb051t4o6thg" path="res://scenes/LettersSelected.tres" id="3_ckeks"]
 [ext_resource type="StyleBox" uid="uid://8pv5iam0xq8o" path="res://scenes/Letters.tres" id="4_oiww4"]
