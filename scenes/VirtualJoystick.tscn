@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5ro8jrpm8nm6"]
+
+[ext_resource type="Script" uid="uid://ca42uhnfugl7b" path="res://scenes/virtual_joystick.gd" id="1_pr5we"]
+[ext_resource type="Texture2D" uid="uid://cvsefg1x3e5vk" path="res://assets/objects/joystick_base.png" id="2_v5vy8"]
+[ext_resource type="Texture2D" uid="uid://duwmr53opruo5" path="res://assets/objects/joystick_knob.png" id="3_woies"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_pr5we")
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("2_v5vy8")
+
+[node name="Knob" type="Sprite2D" parent="Base"]
+position = Vector2(0, -3)
+scale = Vector2(1.12667, 1.11818)
+texture = ExtResource("3_woies")

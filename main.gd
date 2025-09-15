@@ -14,11 +14,13 @@ var puzzles_solved: Dictionary = {
 }
 var current_puzzle_tile = -1
 var mark_and_update_tile_call
+var virtual_joystick: Area2D
 
 func _ready() -> void:
 	# Connect the player's gate signal
 	player.puzzle_touched.connect(_on_puzzle_touched)
 	mark_and_update_tile_call = Callable(tile_layer, "mark_and_update_tile")
+	virtual_joystick = get_tree().get_first_node_in_group("virtual_joystick")
 
 
 func _on_puzzle_touched(puzzle: String, tile_id: int) -> void:
@@ -37,6 +39,8 @@ func _on_puzzle_touched(puzzle: String, tile_id: int) -> void:
 func _set_main_level_visibility(isVisible: bool) -> void:
 	main_tiles.visible = isVisible
 	player.visible = isVisible
+	virtual_joystick.visible = isVisible
+	virtual_joystick.set_process(isVisible)
 
 func _on_puzzle_complete(puzzle: String) -> void:
 	print("clue:", puzzle)

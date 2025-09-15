@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bjhacrsxuv7cj"]
+[gd_scene load_steps=27 format=3 uid="uid://bjhacrsxuv7cj"]
 
 [ext_resource type="Script" uid="uid://dqx1xxautyunl" path="res://main.gd" id="1_a814b"]
 [ext_resource type="Texture2D" uid="uid://bg1g0jm76wgpl" path="res://assets/objects/lock-gate.png" id="2_5crlr"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cus22vtp5b3p7" path="res://assets/objects/cat_collar.png" id="7_yvb8b"]
 [ext_resource type="Texture2D" uid="uid://bskpl03rxoar" path="res://assets/objects/cat.png" id="8_3hf6u"]
 [ext_resource type="Texture2D" uid="uid://blwc8ouubvkdu" path="res://assets/objects/tree_clue.png" id="9_4mcbk"]
+[ext_resource type="PackedScene" uid="uid://b5ro8jrpm8nm6" path="res://scenes/VirtualJoystick.tscn" id="15_mctxq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_torvr"]
 texture = ExtResource("2_hbc2u")
@@ -140,3 +141,8 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Area2D" parent="CanvasLayer" groups=["virtual_joystick"] instance=ExtResource("15_mctxq")]
+position = Vector2(126, 516)

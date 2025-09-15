@@ -1,26 +1,42 @@
 extends CharacterBody2D
 
-@export var speed: float = 200.0
+@export var speed: float = 100.0
 @export var gate_triggered: bool = false
+var virtual_joystick: Area2D
 
 signal puzzle_touched
+
+func _ready():
+	# Find the virtual joystick node in the scene tree
+	virtual_joystick = get_tree().get_first_node_in_group("virtual_joystick")
+	print("found virtual joystick",virtual_joystick)
 
 func _physics_process(delta: float) -> void:
 	var direction := Vector2.ZERO
 
 	# Input handling
-	if Input.is_action_pressed("ui_right"):
-		direction.x += 1
-	if Input.is_action_pressed("ui_left"):
-		direction.x -= 1
-	if Input.is_action_pressed("ui_down"):
-		direction.y += 1
-	if Input.is_action_pressed("ui_up"):
-		direction.y -= 1
-
-	direction = direction.normalized()
-	velocity = direction * speed
-
+	#if Input.is_action_pressed("ui_right"):
+		#direction.x += 1
+	#if Input.is_action_pressed("ui_left"):
+		#direction.x -= 1
+	#if Input.is_action_pressed("ui_down"):
+		#direction.y += 1
+	#if Input.is_action_pressed("ui_up"):
+		#direction.y -= 1
+		
+	 # Get the direction from the virtual joystick
+	if virtual_joystick:
+		direction = virtual_joystick.get_move_direction()
+	
+	# Update velocity based on the joystick direction
+	if direction:
+		velocity = direction * speed
+	else:
+		velocity = Vector2.ZERO
+	
+	#direction = direction.normalized()
+	#velocity = direction * speed
+	
 	if velocity != Vector2.ZERO:
 		var collision = move_and_collide(velocity * delta)
 		if collision and not gate_triggered:
