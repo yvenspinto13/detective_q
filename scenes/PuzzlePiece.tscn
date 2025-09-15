@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://budi16qsskegj"]
 
-[ext_resource type="Script" uid="uid://8d805818su3b" path="res://scenes/puzzle_piece.gd" id="1_jpqrk"]
+[ext_resource type="Script" path="res://scenes/puzzle_piece.gd" id="1_jpqrk"]
 
 [node name="PuzzlePiece" type="Control"]
 layout_mode = 3

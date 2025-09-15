@@ -13,6 +13,16 @@ var matched_pairs = 0
 @onready var feedback_label = $PuzzleArea/PanelContainer/Feedback
 @onready var word_pairs_container = $WordPairs
 
+func play_confetti():
+	print("confetti callledddd...")
+	var confetti = preload("res://effects/effect.tscn").instantiate()
+	confetti.position = get_viewport().get_visible_rect().size / 2
+	add_child(confetti)
+	# Get the actual CPUParticles2D inside the scene
+	var particles = confetti.get_node("Particles")  # child node
+	print("confetti callledddd..2.")
+	particles.emitting = true
+
 func _ready():
 	spawn_pairs()
 
@@ -53,4 +63,7 @@ func _on_piece_matched(word):
 
 	if matched_pairs == pairs.size():
 		feedback_label.text = "All rhymes matched! Puzzle solved!"
+		print("yoyoyoyoyoyo")
+		play_confetti()
+		await get_tree().create_timer(1.0).timeout
 		emit_signal("puzzle_completed", "toy_box")

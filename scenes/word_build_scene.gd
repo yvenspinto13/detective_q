@@ -42,6 +42,14 @@ func _on_slot_pressed(slot_button: Button) -> void:
 		selected_letter = ""
 		check_word()
 
+func play_confetti():
+	var confetti = preload("res://effects/effect.tscn").instantiate()
+	confetti.position = get_viewport().get_visible_rect().size / 2
+	add_child(confetti)
+	# Get the actual CPUParticles2D inside the scene
+	var particles = confetti.get_node("Particles")  # child node
+	particles.emitting = true
+
 func check_word() -> void:
 	var word := ""
 	for slot in slots_container.get_children():
@@ -51,6 +59,9 @@ func check_word() -> void:
 	if word.length() == CORRECT_WORD.length():
 		if word == CORRECT_WORD:
 			print("✅ Puzzle solved!")
+			play_confetti()
+			await get_tree().create_timer(2.0).timeout
+			get_tree().change_scene_to_file("res://scenes/Congratulations.tscn")
 			emit_signal("puzzle_completed", "tree_house")  # success path
 		else:
 			print("❌ Wrong word! Resetting...")

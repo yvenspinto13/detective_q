@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cydxyqbv05xyy"]
+[gd_scene load_steps=2 format=3 uid="uid://dsrt7dbq3jqjp"]
 
 [ext_resource type="Script" uid="uid://1flb0mo1k87h" path="res://scenes/letter_hunt_scene.gd" id="1_djlqp"]
 [ext_resource type="FontFile" uid="uid://cm8s8qyrojjmu" path="res://hey_comic/Hey Comic.otf" id="2_5pv8t"]
