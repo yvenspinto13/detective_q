@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://bbtxtdilewmmp"]
+
+[ext_resource type="Texture2D" uid="uid://x0fbdjl6dwsa" path="res://assets/tiles/grass-tile.png" id="1_0e48y"]
+[ext_resource type="Texture2D" uid="uid://bg1g0jm76wgpl" path="res://assets/objects/lock-gate.png" id="1_epypp"]
+[ext_resource type="Script" uid="uid://dqx1xxautyunl" path="res://main.gd" id="1_kdubu"]
+[ext_resource type="Texture2D" uid="uid://blefc707rpeh6" path="res://assets/tiles/path-tile.png" id="2_epypp"]
+[ext_resource type="Texture2D" uid="uid://3rap63tn6kb1" path="res://assets/objects/detective.png" id="4_0hol4"]
+[ext_resource type="Script" uid="uid://bkjibyyx81xuk" path="res://detective_character_body_2d.gd" id="4_q6r6c"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hol4"]
+resource_name = "gate"
+texture = ExtResource("1_epypp")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(45, -37, 45, 1, 64, 1, 64, -37)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -37, -64, 2, -43, 2, -43, -36)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q6r6c"]
+texture = ExtResource("1_0e48y")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kdubu"]
+texture = ExtResource("2_epypp")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_kdubu"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/7 = SubResource("TileSetAtlasSource_q6r6c")
+sources/8 = SubResource("TileSetAtlasSource_kdubu")
+sources/10 = SubResource("TileSetAtlasSource_0hol4")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_kdubu")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_kdubu")
+collision_visibility_mode = 1
+format = 2
+layer_0/name = "ground"
+layer_0/tile_data = PackedInt32Array(131072, 8, 0, 131073, 8, 0, 131074, 8, 0, 131075, 8, 0, 131076, 8, 0, 196612, 8, 0, 262148, 8, 0, 65540, 8, 0, 4, 8, 0, 131077, 8, 0, 131078, 8, 0, 131079, 8, 0, 131080, 8, 0, 131081, 8, 0, 196608, 7, 0, 196609, 7, 0, 262145, 7, 0, 262144, 7, 0, 262146, 7, 0, 196610, 7, 0, 196611, 7, 0, 262147, 7, 0, 65536, 7, 0, 0, 7, 0, 1, 7, 0, 65537, 7, 0, 65538, 7, 0, 2, 7, 0, 3, 7, 0, 65539, 7, 0, 196613, 7, 0, 262149, 7, 0, 262150, 7, 0, 196614, 7, 0, 196615, 7, 0, 262151, 7, 0, 262152, 7, 0, 196616, 7, 0, 196617, 7, 0, 262153, 7, 0, 65545, 7, 0, 65544, 7, 0, 65542, 7, 0, 65541, 7, 0, 5, 7, 0, 6, 7, 0, 7, 7, 0, 65543, 7, 0, 8, 7, 0, 9, 7, 0)
+layer_1/name = "infra"
+layer_1/tile_data = PackedInt32Array(2, 10, 0, 65538, 10, 1, 3, 65546, 0, 65539, 65546, 1)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(-209, -866)
+collision_layer = 2
+script = ExtResource("4_q6r6c")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(308, 1103)
+texture = ExtResource("4_0hol4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+polygon = PackedVector2Array(269, 992, 227, 1100, 232, 1172, 227, 1218, 353, 1222, 372, 1107, 388, 1062, 361, 1020, 305, 974)

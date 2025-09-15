@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ceo1xe6iy0pet" path="res://scenes/sound_match_control.gd" id="1_ybmvc"]
 [ext_resource type="Texture2D" uid="uid://cnn1eaxg1rcg8" path="res://assets/objects/man-detective-medium-skin-tone-svgrepo-com.svg" id="2_vkf3b"]
-[ext_resource type="Script" uid="uid://pexaj3kc1mft" path="res://magnify_glass.gd" id="3_kfj5c"]
-[ext_resource type="FontFile" uid="uid://cidj1g65p8cg2" path="res://hey_comic/Hey Comic.ttf" id="4_25kc5"]
-[ext_resource type="FontFile" uid="uid://cm8s8qyrojjmu" path="res://hey_comic/Hey Comic.otf" id="5_41oog"]
+[ext_resource type="Script" path="res://magnify_glass.gd" id="3_kfj5c"]
 
 [sub_resource type="GDScript" id="GDScript_8l4mk"]
 script/source = "extends Node2D

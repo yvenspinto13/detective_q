@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bedlcavm2btcc"]
+
+[ext_resource type="Script" uid="uid://bc3bu1x0m2yav" path="res://effects/effect.gd" id="1_ja425"]
+[ext_resource type="Texture2D" uid="uid://2a7j0nv4qt8n" path="res://assets/colourful-screen.png" id="2_ja425"]
+
+[node name="Effect" type="Node2D"]
+script = ExtResource("1_ja425")
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 300
+texture = ExtResource("2_ja425")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+emission_shape = 4
+emission_points = PackedVector2Array()
+emission_colors = PackedColorArray(0.890196, 0, 0, 1, 0.120337, 0.961629, 0.344431, 1, 0, 0, 1, 1, 0.961629, 0.912611, 0.164606, 1)
+gravity = Vector2(0, 200)
