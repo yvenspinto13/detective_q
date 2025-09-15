@@ -4,6 +4,7 @@ extends Node2D
 @onready var main_tiles = $TileMap
 @onready var puzzle_container = $PuzzleContainer
 @onready var tile_layer = $TileMap
+@onready var success_label = $SuccessLabel
 
 var puzzle_instance
 var puzzles_solved: Dictionary = {
@@ -48,7 +49,16 @@ func _on_puzzle_complete(puzzle: String) -> void:
 	puzzle_container.remove_child(puzzle_instance)
 	_set_main_level_visibility(true)
 	player.gate_triggered = false
+	mark_solved(puzzle)
+
 
 func mark_solved(key: String) -> void:
+	print("i am called")
 	if puzzles_solved.has(key):
 		puzzles_solved[key] = true
+	for value in puzzles_solved.values():
+		print("Value:", value)
+		if value == false:
+			return
+	print("printing victory")
+	success_label.text = "Hooray!! Level complete!\nYou found the cat!"

@@ -31,7 +31,7 @@ func _process(delta):
 	if is_dragging:
 		var touch_pos = get_global_mouse_position()
 		var offset = touch_pos - base.global_position
-		print("joystick: drag", offset)
+		#print("joystick: drag", offset)
 		
 		# Clamp the knob's position within the maximum distance
 		knob.position = offset.limit_length(max_distance)

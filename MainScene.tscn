@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bjhacrsxuv7cj"]
+[gd_scene load_steps=28 format=3 uid="uid://bjhacrsxuv7cj"]
 
 [ext_resource type="Script" uid="uid://dqx1xxautyunl" path="res://main.gd" id="1_a814b"]
 [ext_resource type="Texture2D" uid="uid://bg1g0jm76wgpl" path="res://assets/objects/lock-gate.png" id="2_5crlr"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bskpl03rxoar" path="res://assets/objects/cat.png" id="8_3hf6u"]
 [ext_resource type="Texture2D" uid="uid://blwc8ouubvkdu" path="res://assets/objects/tree_clue.png" id="9_4mcbk"]
 [ext_resource type="PackedScene" uid="uid://b5ro8jrpm8nm6" path="res://scenes/VirtualJoystick.tscn" id="15_mctxq"]
+[ext_resource type="FontFile" uid="uid://cm8s8qyrojjmu" path="res://hey_comic/Hey Comic.otf" id="16_nm5af"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_torvr"]
 texture = ExtResource("2_hbc2u")
@@ -146,3 +147,14 @@ offset_bottom = 40.0
 
 [node name="Area2D" parent="CanvasLayer" groups=["virtual_joystick"] instance=ExtResource("15_mctxq")]
 position = Vector2(126, 516)
+
+[node name="SuccessLabel" type="Label" parent="."]
+offset_left = 381.0
+offset_top = 43.0
+offset_right = 893.0
+offset_bottom = 203.0
+theme_override_colors/font_color = Color(0.52549, 0.270588, 0.109804, 1)
+theme_override_fonts/font = ExtResource("16_nm5af")
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1

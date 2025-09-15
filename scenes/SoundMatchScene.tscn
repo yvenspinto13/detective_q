@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7xe7adlddrp4"]
+[gd_scene load_steps=14 format=3 uid="uid://b7xe7adlddrp4"]
 
 [ext_resource type="Script" uid="uid://ceo1xe6iy0pet" path="res://scenes/sound_match_control.gd" id="1_ybmvc"]
 [ext_resource type="Texture2D" uid="uid://cnn1eaxg1rcg8" path="res://assets/objects/man-detective-medium-skin-tone-svgrepo-com.svg" id="2_vkf3b"]
 [ext_resource type="Script" uid="uid://pexaj3kc1mft" path="res://magnify_glass.gd" id="3_kfj5c"]
+[ext_resource type="FontFile" uid="uid://cidj1g65p8cg2" path="res://hey_comic/Hey Comic.ttf" id="4_25kc5"]
+[ext_resource type="FontFile" uid="uid://cm8s8qyrojjmu" path="res://hey_comic/Hey Comic.otf" id="5_41oog"]
 
 [sub_resource type="GDScript" id="GDScript_8l4mk"]
 script/source = "extends Node2D
@@ -28,6 +30,8 @@ bg_color = Color(0.972549, 0.796078, 0.501961, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkf3b"]
 bg_color = Color(0.439216, 0.670588, 0.435294, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_41oog"]
 
 [node name="SoundMatchControl" type="Control"]
 layout_mode = 3
@@ -70,6 +74,7 @@ offset_top = 2.0
 offset_right = 254.0
 offset_bottom = 254.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_25kc5")
 theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -91,6 +96,7 @@ offset_top = 1.0
 offset_right = 255.0
 offset_bottom = 258.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_41oog")
 theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -110,6 +116,7 @@ offset_top = 3.0
 offset_right = 255.0
 offset_bottom = 254.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_41oog")
 theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -129,6 +136,7 @@ offset_top = 3.0
 offset_right = 254.0
 offset_bottom = 255.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_41oog")
 theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -140,4 +148,21 @@ z_index = -2
 layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 648.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vkf3b")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 258.0
+offset_right = 894.0
+offset_bottom = 80.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_41oog")
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("5_41oog")
+theme_override_font_sizes/font_size = 40
+text = "Match the sound!"
+horizontal_alignment = 1
+vertical_alignment = 1

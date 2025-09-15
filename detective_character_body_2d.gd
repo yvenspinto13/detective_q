@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 100.0
+@export var speed: float = 140.0
 @export var gate_triggered: bool = false
 var virtual_joystick: Area2D
 

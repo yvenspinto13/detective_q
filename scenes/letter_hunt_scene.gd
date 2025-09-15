@@ -15,8 +15,8 @@ signal puzzle_completed(clue_id: String)
 @export var collect_anim_time: float = 0.25
 
 # --- nodes ---
-@onready var grid: GridContainer = $GridContainer
-@onready var target_label: Label = $Label
+@onready var grid: GridContainer = $CenterContainer/GridContainer
+@onready var target_label: Label = $PanelContainer/Label
 
 # internal state
 var _target_letters: Array[String] = []
@@ -25,6 +25,7 @@ var _collected_count: int = 0
 var _tile_buttons: Array[Button] = []
 var _expected_counts: Dictionary = {}   # expected occurrences per target letter (from generated pool)
 var _collected_counts: Dictionary = {}  # counts collected so far per target letter
+var custom_font = preload("res://hey_comic/Hey Comic.ttf")
 
 func _ready() -> void:
 	randomize()
@@ -106,7 +107,12 @@ func _create_tile_button(letter: String) -> Button:
 	var btn := Button.new()
 	btn.focus_mode = Control.FOCUS_NONE
 	btn.text = str(letter)
-	btn.add_theme_font_size_override("font_size", 24) 
+	btn.add_theme_font_size_override("font_size", 32) 
+	btn.add_theme_font_override("font", custom_font)
+	btn.add_theme_color_override("font_color", Color.BLACK)
+	var style_box: StyleBoxFlat = StyleBoxFlat.new()
+	style_box.bg_color = "#f8cb80"
+	btn.add_theme_stylebox_override("normal", style_box)
 	#btn.expand = true
 	btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	btn.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -116,6 +122,7 @@ func _create_tile_button(letter: String) -> Button:
 	return btn
 
 func _on_tile_pressed(btn: Button) -> void:
+	print("==pressed")
 	var letter = str(btn.get_meta("letter")).to_lower()
 	if letter in _target_letters:
 		_handle_correct_tile(btn, letter)
