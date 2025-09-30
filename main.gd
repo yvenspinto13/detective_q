@@ -30,7 +30,7 @@ func _on_puzzle_touched(puzzle: String, tile_id: int) -> void:
 	## Optional: stop player movement while puzzle is active
 	player.set_process(false)
 	var puzzle_scene: PackedScene = load("res://scenes/%s.tscn" % puzzle)
-	puzzle_instance = puzzle_scene.instantiate()
+	puzzle_instance = puzzle_scene.instantiate()	
 	puzzle_instance.puzzle_completed.connect(_on_puzzle_complete)
 	
 	puzzle_container.add_child(puzzle_instance)

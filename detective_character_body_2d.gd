@@ -63,4 +63,4 @@ func _physics_process(delta: float) -> void:
 				elif  tile_id_x == 1:
 					print("Sign board")
 					gate_triggered = true
-					emit_signal("puzzle_touched", "LetterHuntScene", tile_id_x)
+					emit_signal("puzzle_touched", "MarioLetterHuntScene", tile_id_x)

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpe768laf16co"]
+
+[ext_resource type="FontFile" uid="uid://dm3ch1vmt4ixr" path="res://assets/fonts/font.ttf" id="1_egvhe"]
+[ext_resource type="Script" uid="uid://278ahsdh56lv" path="res://scripts/points_label.gd" id="1_wp2eg"]
+
+[node name="PointsLabel" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_egvhe")
+theme_override_font_sizes/font_size = 10
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_wp2eg")

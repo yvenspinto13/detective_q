@@ -1,0 +1,294 @@
+[gd_scene load_steps=30 format=3 uid="uid://b3cjnvk7p5qhn"]
+
+[ext_resource type="Script" uid="uid://yxvkwdui20pg" path="res://scripts/mario_letter_hunt_scene.gd" id="1_6xyix"]
+[ext_resource type="Texture2D" uid="uid://bh2i2pbd72n30" path="res://assets/Sprites/GroundBlock.png" id="1_spspl"]
+[ext_resource type="Texture2D" uid="uid://8as4lix1a8pr" path="res://assets/Sprites/HardBlock.png" id="2_6xyix"]
+[ext_resource type="Texture2D" uid="uid://dbhkvad8kmca" path="res://assets/Sprites/UndergroundBlock.png" id="3_x866t"]
+[ext_resource type="Texture2D" uid="uid://dtkrgfs1x5qrr" path="res://assets/Sprites/UndergroundBrick.png" id="4_i83ko"]
+[ext_resource type="PackedScene" uid="uid://ds306i63pp7g5" path="res://scenes/MarioPlayer.tscn" id="5_yp3tk"]
+[ext_resource type="Script" uid="uid://70do8g1bqv6q" path="res://scripts/level_manager.gd" id="6_bbe6x"]
+[ext_resource type="PackedScene" uid="uid://blh6theyqhbp7" path="res://scenes/UI.tscn" id="7_t0awh"]
+[ext_resource type="PackedScene" uid="uid://cdokw2iff7aos" path="res://scenes/MysteryBox.tscn" id="8_qc0n0"]
+[ext_resource type="PackedScene" uid="uid://cdxdboxrdqt71" path="res://scenes/alphabet_box.tscn" id="9_w1b34"]
+[ext_resource type="PackedScene" uid="uid://lx6mhx6kei66" path="res://scenes/Koopa.tscn" id="10_xtiyp"]
+[ext_resource type="PackedScene" uid="uid://dkgokw43dk4yp" path="res://scenes/Goomba.tscn" id="11_ebaom"]
+[ext_resource type="PackedScene" uid="uid://b773gufc58p7w" path="res://scenes/Brick.tscn" id="12_qq75k"]
+[ext_resource type="Texture2D" uid="uid://cq6tqakba8cj0" path="res://assets/Sprites/Cloud1.png" id="13_de7n4"]
+[ext_resource type="Texture2D" uid="uid://clh4o85nqf188" path="res://assets/Sprites/Cloud2.png" id="14_yglqf"]
+[ext_resource type="Texture2D" uid="uid://brrum5522waxt" path="res://assets/Sprites/Cloud3.png" id="15_xj48p"]
+[ext_resource type="Texture2D" uid="uid://bbd1cchxb20u2" path="res://assets/Sprites/Bush1.png" id="16_urg31"]
+[ext_resource type="Texture2D" uid="uid://j6grr7g688fn" path="res://assets/Sprites/Bush3.png" id="17_fv1dc"]
+[ext_resource type="Texture2D" uid="uid://ggrv7avq2vw" path="res://assets/Sprites/Bush2.png" id="18_fd4yh"]
+[ext_resource type="Texture2D" uid="uid://ldf8fweos6xc" path="res://assets/Sprites/Hill1.png" id="19_cor2l"]
+[ext_resource type="Texture2D" uid="uid://cpj4och0ipdug" path="res://assets/Sprites/Hill2.png" id="20_udwgq"]
+[ext_resource type="PackedScene" uid="uid://cbcrmtfxu3h72" path="res://scenes/Flag.tscn" id="21_cnu3s"]
+[ext_resource type="Texture2D" uid="uid://75uhio5lh74v" path="res://assets/Sprites/Castle.png" id="22_8q7k7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dqcys"]
+texture = ExtResource("1_spspl")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cghdk"]
+texture = ExtResource("2_6xyix")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vmm2j"]
+texture = ExtResource("3_x866t")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6nibd"]
+texture = ExtResource("4_i83ko")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_ofl5u"]
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 5
+sources/0 = SubResource("TileSetAtlasSource_dqcys")
+sources/1 = SubResource("TileSetAtlasSource_cghdk")
+sources/2 = SubResource("TileSetAtlasSource_vmm2j")
+sources/3 = SubResource("TileSetAtlasSource_6nibd")
+
+[sub_resource type="Curve2D" id="Curve2D_q8xco"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 61, 0, 0, 0, 0, 13, 42, 0, 0, 0, 0, 38, 33, 0, 0, 0, 0, 66, 61)
+}
+point_count = 4
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_6xyix")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_ofl5u")
+format = 2
+layer_0/tile_data = PackedInt32Array(393204, 0, 0, 393205, 0, 0, 393206, 0, 0, 393207, 0, 0, 393208, 0, 0, 393209, 0, 0, 393210, 0, 0, 458746, 0, 0, 458747, 0, 0, 458748, 0, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393212, 0, 0, 393211, 0, 0, 458741, 0, 0, 458740, 0, 0, 458742, 0, 0, 458743, 0, 0, 458744, 0, 0, 458745, 0, 0, 327684, 0, 0, 393220, 0, 0, 393219, 0, 0, 327683, 0, 0, 327682, 0, 0, 327681, 0, 0, 327680, 0, 0, 393215, 0, 0, 393214, 0, 0, 393213, 0, 0, 524276, 0, 0, 524277, 0, 0, 524278, 0, 0, 524279, 0, 0, 524280, 0, 0, 524281, 0, 0, 524282, 0, 0, 524283, 0, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458772, 0, 0, 458773, 0, 0, 458774, 0, 0, 393238, 0, 0, 393239, 0, 0, 393240, 0, 0, 393241, 0, 0, 393242, 0, 0, 393243, 0, 0, 393244, 0, 0, 393245, 0, 0, 393246, 0, 0, 393247, 0, 0, 393248, 0, 0, 393249, 0, 0, 393250, 0, 0, 393251, 0, 0, 393252, 0, 0, 393253, 0, 0, 393254, 0, 0, 393255, 0, 0, 393256, 0, 0, 393257, 0, 0, 393258, 0, 0, 393259, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 0, 0, 327700, 0, 0, 327701, 0, 0, 327702, 0, 0, 327703, 0, 0, 327704, 0, 0, 327705, 0, 0, 327706, 0, 0, 327707, 0, 0, 327708, 0, 0, 327709, 0, 0, 327710, 0, 0, 327711, 0, 0, 327712, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 393236, 0, 0, 393237, 0, 0, 458775, 0, 0, 458776, 0, 0, 458777, 0, 0, 458778, 0, 0, 458779, 0, 0, 458780, 0, 0, 458781, 0, 0, 458782, 0, 0, 458783, 0, 0, 458784, 0, 0, 458785, 0, 0, 458786, 0, 0, 458787, 0, 0, 458788, 0, 0, 458789, 0, 0, 458790, 0, 0, 458791, 0, 0, 458792, 0, 0, 458793, 0, 0, 458794, 0, 0, 458795, 0, 0, 458796, 0, 0, 327713, 0, 0, 327714, 0, 0, 327715, 0, 0, 327716, 0, 0, 327717, 0, 0, 327718, 0, 0, 327719, 0, 0, 327720, 0, 0, 327721, 0, 0, 327722, 0, 0, 327723, 0, 0, 327724, 0, 0, 393260, 0, 0, 393261, 0, 0, 327725, 0, 0, 458797, 0, 0, 327730, 0, 0, 393266, 0, 0, 458802, 0, 0, 458803, 0, 0, 458804, 0, 0, 458805, 0, 0, 458806, 0, 0, 458807, 0, 0, 458808, 0, 0, 458809, 0, 0, 458810, 0, 0, 458811, 0, 0, 458812, 0, 0, 458813, 0, 0, 458814, 0, 0, 458815, 0, 0, 458816, 0, 0, 458817, 0, 0, 393281, 0, 0, 393282, 0, 0, 327731, 0, 0, 327732, 0, 0, 327733, 0, 0, 327734, 0, 0, 327735, 0, 0, 327736, 0, 0, 327737, 0, 0, 327738, 0, 0, 327741, 0, 0, 327742, 0, 0, 327740, 0, 0, 327739, 0, 0, 393271, 0, 0, 393270, 0, 0, 393269, 0, 0, 393268, 0, 0, 393267, 0, 0, 393272, 0, 0, 393273, 0, 0, 393274, 0, 0, 393275, 0, 0, 393276, 0, 0, 393277, 0, 0, 393278, 0, 0, 393279, 0, 0, 393280, 0, 0, 327744, 0, 0, 327743, 0, 0, 327745, 0, 0, 327746, 0, 0, 327747, 0, 0, 327748, 0, 0, 327749, 0, 0, 327750, 0, 0, 327751, 0, 0, 327752, 0, 0, 327753, 0, 0, 327754, 0, 0, 327755, 0, 0, 327756, 0, 0, 327757, 0, 0, 327758, 0, 0, 327759, 0, 0, 327760, 0, 0, 327761, 0, 0, 327762, 0, 0, 327763, 0, 0, 327764, 0, 0, 327765, 0, 0, 327766, 0, 0, 327767, 0, 0, 327768, 0, 0, 327769, 0, 0, 327770, 0, 0, 327771, 0, 0, 327772, 0, 0, 393308, 0, 0, 458844, 0, 0, 458843, 0, 0, 458842, 0, 0, 458841, 0, 0, 458840, 0, 0, 458839, 0, 0, 458838, 0, 0, 458837, 0, 0, 458836, 0, 0, 458835, 0, 0, 458834, 0, 0, 458833, 0, 0, 458832, 0, 0, 458831, 0, 0, 458830, 0, 0, 458829, 0, 0, 458828, 0, 0, 458827, 0, 0, 458826, 0, 0, 458825, 0, 0, 393289, 0, 0, 393288, 0, 0, 393287, 0, 0, 393286, 0, 0, 458821, 0, 0, 458820, 0, 0, 458819, 0, 0, 458818, 0, 0, 393283, 0, 0, 393284, 0, 0, 393285, 0, 0, 458822, 0, 0, 458823, 0, 0, 458824, 0, 0, 393290, 0, 0, 393291, 0, 0, 393292, 0, 0, 393293, 0, 0, 393294, 0, 0, 393295, 0, 0, 393296, 0, 0, 393297, 0, 0, 393298, 0, 0, 393304, 0, 0, 393305, 0, 0, 393306, 0, 0, 393307, 0, 0, 393303, 0, 0, 393302, 0, 0, 393301, 0, 0, 393300, 0, 0, 393299, 0, 0, 393309, 0, 0, 393310, 0, 0, 393311, 0, 0, 393312, 0, 0, 393313, 0, 0, 393314, 0, 0, 393315, 0, 0, 327778, 0, 0, 327777, 0, 0, 327776, 0, 0, 327775, 0, 0, 327774, 0, 0, 327773, 0, 0, 458845, 0, 0, 458846, 0, 0, 458847, 0, 0, 458848, 0, 0, 458849, 0, 0, 458850, 0, 0, 327779, 0, 0, 458851, 0, 0, 262230, 1, 0, 393203, 0, 0, 393202, 0, 0, 393201, 0, 0, 393200, 0, 0, 393199, 0, 0, 458735, 0, 0, 524271, 0, 0, 524272, 0, 0, 524273, 0, 0, 524274, 0, 0, 524275, 0, 0, 458739, 0, 0, 458738, 0, 0, 458737, 0, 0, 458736, 0, 0, 262220, 1, 0, 196684, 1, 0, 196685, 1, 0, 131149, 1, 0, 65613, 1, 0, 65614, 1, 0, 78, 1, 0, 79, 1, 0, -65456, 1, 0, 80, 1, 0, 81, 1, 0, 65617, 1, 0, 131153, 1, 0, 196689, 1, 0, 262225, 1, 0, 262224, 1, 0, 262223, 1, 0, 262222, 1, 0, 262221, 1, 0, 196686, 1, 0, 131150, 1, 0, 65615, 1, 0, 65616, 1, 0, 131152, 1, 0, 196688, 1, 0, 196687, 1, 0, 131151, 1, 0, -65455, 1, 0, -130991, 1, 0, 262219, 1, 0, 262155, 1, 0, 196620, 1, 0, 131085, 1, 0, 131086, 1, 0, 196622, 1, 0, 196621, 1, 0, 262156, 1, 0, 262157, 1, 0, 262158, 1, 0, 131091, 1, 0, 196627, 1, 0, 262163, 1, 0, 262164, 1, 0, 196628, 1, 0, 131092, 1, 0, 196629, 1, 0, 262165, 1, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.75, 2.75)
+
+[node name="Mario" parent="." node_paths=PackedStringArray("camera_sync", "castle_path") instance=ExtResource("5_yp3tk")]
+position = Vector2(-187, 47)
+camera_sync = NodePath("../Camera2D")
+castle_path = NodePath("../Path2D/PathFollow2D")
+
+[node name="LevelManager" type="Node" parent="." node_paths=PackedStringArray("ui", "player") groups=["level_manager"]]
+script = ExtResource("6_bbe6x")
+ui = NodePath("../UI")
+player = NodePath("../Mario")
+
+[node name="UI" parent="." instance=ExtResource("7_t0awh")]
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="Bonuses" type="Node" parent="Environment"]
+
+[node name="MysteryBox2" parent="Environment/Bonuses" instance=ExtResource("8_qc0n0")]
+position = Vector2(-116, 41)
+
+[node name="AlphabetBox" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
+position = Vector2(-147, 41)
+alphabet = "p"
+
+[node name="AlphabetBox2" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
+position = Vector2(-132, 41)
+alphabet = "q"
+
+[node name="MysteryBox" parent="Environment/Bonuses" instance=ExtResource("8_qc0n0")]
+position = Vector2(218.213, -20)
+bonus_type = 1
+
+[node name="AlphabetBox3" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
+position = Vector2(447, 40)
+alphabet = "d"
+
+[node name="AlphabetBox4" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
+position = Vector2(479, 40)
+alphabet = "p"
+
+[node name="AlphabetBox5" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
+position = Vector2(437, -14)
+alphabet = "q"
+
+[node name="AlphabetBox6" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
+position = Vector2(453, -14)
+alphabet = "p"
+
+[node name="AlphabetBox7" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
+position = Vector2(469, -14)
+alphabet = "d"
+
+[node name="AlphabetBox8" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
+position = Vector2(890, -10)
+alphabet = "p"
+
+[node name="AlphabetBox9" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
+position = Vector2(924, -73)
+alphabet = "p"
+
+[node name="AlphabetBox10" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
+position = Vector2(923, -134)
+alphabet = "q"
+
+[node name="AlphabetBox11" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
+position = Vector2(1054, 35)
+alphabet = "p"
+
+[node name="AlphabetBox12" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
+position = Vector2(1090, 9)
+alphabet = "d"
+
+[node name="AlphabetBox13" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
+position = Vector2(1126, 35)
+alphabet = "q"
+
+[node name="Enemies" type="Node" parent="Environment"]
+
+[node name="Koopa" parent="Environment/Enemies" instance=ExtResource("10_xtiyp")]
+position = Vector2(602, 65)
+
+[node name="Goomba" parent="Environment/Enemies" instance=ExtResource("11_ebaom")]
+position = Vector2(32, 70)
+
+[node name="Goomba2" parent="Environment/Enemies" instance=ExtResource("11_ebaom")]
+position = Vector2(165, 69)
+
+[node name="Goomba3" parent="Environment/Enemies" instance=ExtResource("11_ebaom")]
+position = Vector2(669.548, 63.8997)
+
+[node name="Bricks" type="Node" parent="Environment"]
+
+[node name="Brick4" parent="Environment/Bricks" instance=ExtResource("12_qq75k")]
+position = Vector2(495, 40)
+
+[node name="Brick2" parent="Environment/Bricks" instance=ExtResource("12_qq75k")]
+position = Vector2(431.885, 39.725)
+
+[node name="Brick" parent="Environment/Bricks" instance=ExtResource("12_qq75k")]
+position = Vector2(-100, 41)
+
+[node name="Brick3" parent="Environment/Bricks" instance=ExtResource("12_qq75k")]
+position = Vector2(463, 40)
+
+[node name="Brick5" parent="Environment/Bricks" instance=ExtResource("12_qq75k")]
+position = Vector2(870, 39)
+
+[node name="Brick6" parent="Environment/Bricks" instance=ExtResource("12_qq75k")]
+position = Vector2(925, 39)
+
+[node name="Brick7" parent="Environment/Bricks" instance=ExtResource("12_qq75k")]
+position = Vector2(909, 39)
+
+[node name="Brick8" parent="Environment/Bricks" instance=ExtResource("12_qq75k")]
+position = Vector2(923, -22)
+
+[node name="Brick9" parent="Environment/Bricks" instance=ExtResource("12_qq75k")]
+position = Vector2(939, -22)
+
+[node name="Brick10" parent="Environment/Bricks" instance=ExtResource("12_qq75k")]
+position = Vector2(955, -22)
+
+[node name="Decorations" type="Node" parent="Environment"]
+
+[node name="Clouds" type="Node" parent="Environment/Decorations"]
+
+[node name="Cloud" type="Sprite2D" parent="Environment/Decorations/Clouds"]
+position = Vector2(-74, -35)
+texture = ExtResource("13_de7n4")
+
+[node name="Cloud3" type="Sprite2D" parent="Environment/Decorations/Clouds"]
+position = Vector2(421, -131)
+texture = ExtResource("14_yglqf")
+
+[node name="Cloud2" type="Sprite2D" parent="Environment/Decorations/Clouds"]
+position = Vector2(21, -56)
+texture = ExtResource("13_de7n4")
+
+[node name="Cloud4" type="Sprite2D" parent="Environment/Decorations/Clouds"]
+position = Vector2(1236, -156)
+texture = ExtResource("15_xj48p")
+
+[node name="Cloud5" type="Sprite2D" parent="Environment/Decorations/Clouds"]
+position = Vector2(921, -221)
+texture = ExtResource("15_xj48p")
+
+[node name="Cloud6" type="Sprite2D" parent="Environment/Decorations/Clouds"]
+position = Vector2(614, -62)
+texture = ExtResource("14_yglqf")
+
+[node name="Cloud7" type="Sprite2D" parent="Environment/Decorations/Clouds"]
+position = Vector2(1478, -125)
+texture = ExtResource("14_yglqf")
+
+[node name="Bushes" type="Node" parent="Environment/Decorations"]
+
+[node name="Bush" type="Sprite2D" parent="Environment/Decorations/Bushes"]
+z_index = -1
+position = Vector2(-45, 67)
+texture = ExtResource("16_urg31")
+
+[node name="Bush4" type="Sprite2D" parent="Environment/Decorations/Bushes"]
+z_index = -1
+position = Vector2(396, 67)
+texture = ExtResource("17_fv1dc")
+
+[node name="Bush2" type="Sprite2D" parent="Environment/Decorations/Bushes"]
+z_index = -1
+position = Vector2(600, 67)
+texture = ExtResource("17_fv1dc")
+
+[node name="Bush3" type="Sprite2D" parent="Environment/Decorations/Bushes"]
+z_index = -1
+position = Vector2(976, 68)
+texture = ExtResource("18_fd4yh")
+
+[node name="Hills" type="Node" parent="Environment/Decorations"]
+
+[node name="Hill" type="Sprite2D" parent="Environment/Decorations/Hills"]
+z_index = -1
+position = Vector2(1, 66)
+scale = Vector2(1.125, 1.66667)
+texture = ExtResource("19_cor2l")
+
+[node name="Hill2" type="Sprite2D" parent="Environment/Decorations/Hills"]
+z_index = -1
+position = Vector2(672, 63)
+scale = Vector2(1.125, 1.66667)
+texture = ExtResource("20_udwgq")
+
+[node name="Hill3" type="Sprite2D" parent="Environment/Decorations/Hills"]
+z_index = -1
+position = Vector2(1152, 63)
+scale = Vector2(1.125, 1.66667)
+texture = ExtResource("20_udwgq")
+
+[node name="Hill4" type="Sprite2D" parent="Environment/Decorations/Hills"]
+z_index = -1
+position = Vector2(118, 65)
+scale = Vector2(1.125, 1.66667)
+texture = ExtResource("19_cor2l")
+
+[node name="Flag" parent="." instance=ExtResource("21_cnu3s")]
+position = Vector2(1382, 65)
+collision_layer = 32
+
+[node name="Castle" type="Sprite2D" parent="."]
+position = Vector2(1554, 40)
+texture = ExtResource("22_8q7k7")
+
+[node name="slide_down_finished_position" type="Marker2D" parent="."]
+position = Vector2(1385, 61)
+
+[node name="LandDownMarker" type="Marker2D" parent="."]
+position = Vector2(1456, 79)
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(1385, 0)
+curve = SubResource("Curve2D_q8xco")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(0, 61)
+rotation = -0.915101
+rotates = false
