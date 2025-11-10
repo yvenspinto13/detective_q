@@ -13,7 +13,7 @@ config_version=5
 config/name="detectivex"
 run/main_scene="uid://bjhacrsxuv7cj"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://detectivelogo.jpg"
 
 [autoload]
 
@@ -69,4 +69,5 @@ shoot={
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.0156863, 0.611765, 0.847059, 1)
