@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="detectivex"
-run/main_scene="uid://bjhacrsxuv7cj"
+run/main_scene="uid://b3cjnvk7p5qhn"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://detectivelogo.jpg"
 

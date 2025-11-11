@@ -125,7 +125,7 @@ layer_1/tile_data = PackedInt32Array(1, 10, 0, 65537, 10, 1, 2, 65546, 0, 65538,
 script = ExtResource("5_5crlr")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(-219, -879)
+position = Vector2(-217, -864)
 collision_layer = 2
 script = ExtResource("5_8xkvn")
 metadata/_edit_group_ = true

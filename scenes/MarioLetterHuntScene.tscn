@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b3cjnvk7p5qhn"]
+[gd_scene load_steps=31 format=3 uid="uid://b3cjnvk7p5qhn"]
 
 [ext_resource type="Script" uid="uid://yxvkwdui20pg" path="res://scripts/mario_letter_hunt_scene.gd" id="1_6xyix"]
 [ext_resource type="Texture2D" uid="uid://bh2i2pbd72n30" path="res://assets/Sprites/GroundBlock.png" id="1_spspl"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cpj4och0ipdug" path="res://assets/Sprites/Hill2.png" id="20_udwgq"]
 [ext_resource type="PackedScene" uid="uid://cbcrmtfxu3h72" path="res://scenes/Flag.tscn" id="21_cnu3s"]
 [ext_resource type="Texture2D" uid="uid://75uhio5lh74v" path="res://assets/Sprites/Castle.png" id="22_8q7k7"]
+[ext_resource type="PackedScene" uid="uid://bi1p3xilrqqux" path="res://scenes/MarioControlsScene.tscn" id="24_x866t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dqcys"]
 texture = ExtResource("1_spspl")
@@ -94,7 +95,7 @@ alphabet = "p"
 
 [node name="AlphabetBox2" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
 position = Vector2(-132, 41)
-alphabet = "q"
+alphabet = "p"
 
 [node name="MysteryBox" parent="Environment/Bonuses" instance=ExtResource("8_qc0n0")]
 position = Vector2(218.213, -20)
@@ -110,7 +111,7 @@ alphabet = "p"
 
 [node name="AlphabetBox5" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
 position = Vector2(437, -14)
-alphabet = "q"
+alphabet = "e"
 
 [node name="AlphabetBox6" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
 position = Vector2(453, -14)
@@ -126,11 +127,11 @@ alphabet = "p"
 
 [node name="AlphabetBox9" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
 position = Vector2(924, -73)
-alphabet = "p"
+alphabet = "g"
 
 [node name="AlphabetBox10" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
 position = Vector2(923, -134)
-alphabet = "q"
+alphabet = "p"
 
 [node name="AlphabetBox11" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
 position = Vector2(1054, 35)
@@ -142,21 +143,21 @@ alphabet = "d"
 
 [node name="AlphabetBox13" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
 position = Vector2(1126, 35)
-alphabet = "q"
+alphabet = "f"
 
 [node name="Enemies" type="Node" parent="Environment"]
 
 [node name="Koopa" parent="Environment/Enemies" instance=ExtResource("10_xtiyp")]
-position = Vector2(602, 65)
+position = Vector2(601, 68)
 
 [node name="Goomba" parent="Environment/Enemies" instance=ExtResource("11_ebaom")]
-position = Vector2(32, 70)
+position = Vector2(33, 72)
 
 [node name="Goomba2" parent="Environment/Enemies" instance=ExtResource("11_ebaom")]
-position = Vector2(165, 69)
+position = Vector2(165, 72)
 
 [node name="Goomba3" parent="Environment/Enemies" instance=ExtResource("11_ebaom")]
-position = Vector2(669.548, 63.8997)
+position = Vector2(669, 72)
 
 [node name="Bricks" type="Node" parent="Environment"]
 
@@ -236,7 +237,7 @@ texture = ExtResource("17_fv1dc")
 
 [node name="Bush2" type="Sprite2D" parent="Environment/Decorations/Bushes"]
 z_index = -1
-position = Vector2(600, 67)
+position = Vector2(603, 66)
 texture = ExtResource("17_fv1dc")
 
 [node name="Bush3" type="Sprite2D" parent="Environment/Decorations/Bushes"]
@@ -254,7 +255,7 @@ texture = ExtResource("19_cor2l")
 
 [node name="Hill2" type="Sprite2D" parent="Environment/Decorations/Hills"]
 z_index = -1
-position = Vector2(672, 63)
+position = Vector2(669, 63)
 scale = Vector2(1.125, 1.66667)
 texture = ExtResource("20_udwgq")
 
@@ -292,3 +293,5 @@ curve = SubResource("Curve2D_q8xco")
 position = Vector2(0, 61)
 rotation = -0.915101
 rotates = false
+
+[node name="CanvasLayer" parent="." instance=ExtResource("24_x866t")]

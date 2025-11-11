@@ -45,10 +45,14 @@ position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_uhemj")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(0, 8)
+position = Vector2(0, -2)
+target_position = Vector2(0, 16)
 collision_mask = 18
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(72, 1)
+scale = Vector2(0.95, 0.8)
+rect = Rect2(-10, -12, 20, 20)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
