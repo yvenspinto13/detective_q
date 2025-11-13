@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b3cjnvk7p5qhn"]
+[gd_scene load_steps=33 format=3 uid="uid://b3cjnvk7p5qhn"]
 
 [ext_resource type="Script" uid="uid://yxvkwdui20pg" path="res://scripts/mario_letter_hunt_scene.gd" id="1_6xyix"]
 [ext_resource type="Texture2D" uid="uid://bh2i2pbd72n30" path="res://assets/Sprites/GroundBlock.png" id="1_spspl"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cpj4och0ipdug" path="res://assets/Sprites/Hill2.png" id="20_udwgq"]
 [ext_resource type="PackedScene" uid="uid://cbcrmtfxu3h72" path="res://scenes/Flag.tscn" id="21_cnu3s"]
 [ext_resource type="Texture2D" uid="uid://75uhio5lh74v" path="res://assets/Sprites/Castle.png" id="22_8q7k7"]
+[ext_resource type="Script" uid="uid://bvtilao4v1d3f" path="res://scripts/castle.gd" id="23_i83ko"]
 [ext_resource type="PackedScene" uid="uid://bi1p3xilrqqux" path="res://scenes/MarioControlsScene.tscn" id="24_x866t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dqcys"]
@@ -53,6 +54,9 @@ sources/1 = SubResource("TileSetAtlasSource_cghdk")
 sources/2 = SubResource("TileSetAtlasSource_vmm2j")
 sources/3 = SubResource("TileSetAtlasSource_6nibd")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x866t"]
+size = Vector2(20, 31)
+
 [sub_resource type="Curve2D" id="Curve2D_q8xco"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 61, 0, 0, 0, 0, 13, 42, 0, 0, 0, 0, 38, 33, 0, 0, 0, 0, 66, 61)
@@ -72,6 +76,7 @@ zoom = Vector2(2.75, 2.75)
 
 [node name="Mario" parent="." node_paths=PackedStringArray("camera_sync", "castle_path") instance=ExtResource("5_yp3tk")]
 position = Vector2(-187, 47)
+collision_mask = 190
 camera_sync = NodePath("../Camera2D")
 castle_path = NodePath("../Path2D/PathFollow2D")
 
@@ -272,11 +277,21 @@ scale = Vector2(1.125, 1.66667)
 texture = ExtResource("19_cor2l")
 
 [node name="Flag" parent="." instance=ExtResource("21_cnu3s")]
-position = Vector2(1382, 65)
+position = Vector2(1323, 556)
 collision_layer = 32
 
-[node name="Castle" type="Sprite2D" parent="."]
+[node name="Castle" type="Area2D" parent="."]
 position = Vector2(1554, 40)
+collision_layer = 128
+script = ExtResource("23_i83ko")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Castle"]
+visible = false
+position = Vector2(0, 22.5)
+shape = SubResource("RectangleShape2D_x866t")
+
+[node name="CastleSprite" type="Sprite2D" parent="Castle"]
+z_index = -1
 texture = ExtResource("22_8q7k7")
 
 [node name="slide_down_finished_position" type="Marker2D" parent="."]
@@ -295,3 +310,5 @@ rotation = -0.915101
 rotates = false
 
 [node name="CanvasLayer" parent="." instance=ExtResource("24_x866t")]
+
+[connection signal="body_entered" from="Castle" to="Castle" method="_on_body_entered"]

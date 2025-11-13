@@ -8,52 +8,24 @@
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_ed0tn")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -96.0
-offset_right = 174.0
-offset_bottom = -24.0
-grow_vertical = 0
-scale = Vector2(1.3, 1.3)
-theme_override_constants/margin_left = 16
+[node name="TouchScreenUpButton" type="TouchScreenButton" parent="."]
+position = Vector2(1052, 555)
+scale = Vector2(2.5, 2.5)
+texture_normal = ExtResource("1_0amk6")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 40
+[node name="TouchScreenLeftButton" type="TouchScreenButton" parent="."]
+position = Vector2(12, 555)
+scale = Vector2(2.5, 2.5)
+texture_normal = ExtResource("2_0amk6")
 
-[node name="LeftButton" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_0amk6")
-expand_mode = 3
+[node name="TouchScreenRightButton" type="TouchScreenButton" parent="."]
+position = Vector2(151, 555)
+scale = Vector2(2.5, 2.5)
+texture_normal = ExtResource("3_ed0tn")
 
-[node name="RightButton" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("3_ed0tn")
-expand_mode = 3
-
-[node name="JumControl" type="MarginContainer" parent="."]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -86.0
-offset_top = -96.0
-offset_bottom = -5.28003
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_constants/margin_right = 16
-
-[node name="HBoxContainer" type="HBoxContainer" parent="JumControl"]
-layout_mode = 2
-
-[node name="UpButton" type="TextureRect" parent="JumControl/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_0amk6")
-expand_mode = 3
-
-[connection signal="gui_input" from="MarginContainer/HBoxContainer/LeftButton" to="." method="_on_left_button_gui_input"]
-[connection signal="gui_input" from="MarginContainer/HBoxContainer/RightButton" to="." method="_on_right_button_gui_input"]
-[connection signal="gui_input" from="JumControl/HBoxContainer/UpButton" to="." method="_on_up_button_gui_input"]
+[connection signal="pressed" from="TouchScreenUpButton" to="." method="_on_touch_screen_up_button_pressed"]
+[connection signal="released" from="TouchScreenUpButton" to="." method="_on_touch_screen_up_button_released"]
+[connection signal="pressed" from="TouchScreenLeftButton" to="." method="_on_touch_screen_left_button_pressed"]
+[connection signal="released" from="TouchScreenLeftButton" to="." method="_on_touch_screen_left_button_released"]
+[connection signal="pressed" from="TouchScreenRightButton" to="." method="_on_touch_screen_right_button_pressed"]
+[connection signal="released" from="TouchScreenRightButton" to="." method="_on_touch_screen_right_button_released"]
