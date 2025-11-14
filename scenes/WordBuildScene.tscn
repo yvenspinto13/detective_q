@@ -16,7 +16,7 @@ anchors_preset = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="UI"]
 position = Vector2(-24.5, -45.5)
-scale = Vector2(0.96073717, 0.890625)
+scale = Vector2(0.960737, 0.890625)
 texture = ExtResource("2_7fts5")
 
 [node name="PuzzleUI" type="VBoxContainer" parent="UI"]
@@ -51,7 +51,7 @@ layout_mode = 2
 
 [node name="Cat" type="Sprite2D" parent="UI/PuzzleUI/PicturesContainer/PictureCat"]
 position = Vector2(136, 75)
-scale = Vector2(0.58984375, 0.5703125)
+scale = Vector2(0.589844, 0.570312)
 texture = ExtResource("2_ckeks")
 
 [node name="PictureElephant" type="TextureButton" parent="UI/PuzzleUI/PicturesContainer"]
@@ -60,7 +60,7 @@ layout_mode = 2
 
 [node name="Elephant" type="Sprite2D" parent="UI/PuzzleUI/PicturesContainer/PictureElephant"]
 position = Vector2(87, 70)
-scale = Vector2(0.1743164, 0.10595702)
+scale = Vector2(0.174316, 0.105957)
 texture = ExtResource("1_snjmf")
 
 [node name="PictureDog" type="TextureButton" parent="UI/PuzzleUI/PicturesContainer"]
@@ -68,8 +68,8 @@ custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 
 [node name="Dog" type="Sprite2D" parent="UI/PuzzleUI/PicturesContainer/PictureDog"]
-position = Vector2(35.00002, 74)
-scale = Vector2(0.12369793, 0.13769531)
+position = Vector2(35, 74)
+scale = Vector2(0.123698, 0.137695)
 texture = ExtResource("3_ckeks")
 
 [node name="OptionsContainer" type="HBoxContainer" parent="UI/PuzzleUI"]

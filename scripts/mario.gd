@@ -4,6 +4,7 @@ class_name  Player
 
 signal points_scored(points: int)
 signal castle_entered
+signal mario_die
 
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -154,8 +155,12 @@ func die():
 		var death_tween = get_tree().create_tween()
 		death_tween.tween_property(self, "position", position + Vector2(0, -48), .5)
 		death_tween.chain().tween_property(self, "position", position + Vector2(0, 256), 1)
+		Input.action_release("left")
+		Input.action_release("right")
+		Input.action_release("jump")
+		mario_die.emit()
 		#death_tween.tween_callback(func (): get_tree().reload_current_scene())
-		death_tween.tween_callback(func (): get_tree().change_scene_to_file("res://scenes/MarioLetterHuntScene.tscn"))
+		#death_tween.tween_callback(func (): get_tree().change_scene_to_file("res://scenes/MarioLetterHuntScene.tscn"))
 		
 	else:
 		print("Big to small")

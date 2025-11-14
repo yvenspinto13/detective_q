@@ -2,6 +2,7 @@ extends Control
 
 # Emitted when puzzle solved. MainLevel should connect to this.
 signal puzzle_completed(clue_id: String)
+signal puzzle_restart
 
 @export var clue_id: String = "cat_collar"  # set in editor per-puzzle
 # Option list: name + path to audio (edit these to match your files)

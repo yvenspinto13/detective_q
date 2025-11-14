@@ -1,6 +1,7 @@
 extends Node2D
 
-signal puzzle_completed(puzzle: String)
+signal puzzle_completed(puzzle_name: String)
+signal puzzle_restart
 
 @onready var pictures_container := $UI/PuzzleUI/PicturesContainer
 @onready var options_container := $UI/PuzzleUI/OptionsContainer

@@ -1,6 +1,8 @@
 extends Node2D
 
 signal puzzle_completed(clue_id: String)
+signal puzzle_restart
+
 # Example rhyming pairs
 var pairs = [
 	{"word": "box", "rhyme": "fox"},

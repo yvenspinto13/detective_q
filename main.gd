@@ -24,6 +24,19 @@ func _ready() -> void:
 	virtual_joystick = get_tree().get_first_node_in_group("virtual_joystick")
 
 
+func _on_puzzle_restart(puzzle: String, tile_id: int) -> void:
+	if puzzle_instance:
+		puzzle_instance.queue_free()
+		puzzle_instance = null
+	print("==restart puzzle", puzzle)
+	var puzzle_scene: PackedScene = load("res://scenes/%s.tscn" % puzzle)
+	Input.flush_buffered_events()
+	puzzle_instance = puzzle_scene.instantiate()	
+	puzzle_instance.puzzle_completed.connect(_on_puzzle_complete)
+	puzzle_instance.puzzle_restart.connect(_on_puzzle_restart.bind(puzzle, tile_id))
+	puzzle_container.add_child(puzzle_instance)
+	
+
 func _on_puzzle_touched(puzzle: String, tile_id: int) -> void:
 	print("Player touched puzzle...", puzzle)
 	current_puzzle_tile = tile_id
@@ -31,11 +44,13 @@ func _on_puzzle_touched(puzzle: String, tile_id: int) -> void:
 	player.set_process(false)
 	var puzzle_scene: PackedScene = load("res://scenes/%s.tscn" % puzzle)
 	puzzle_instance = puzzle_scene.instantiate()	
-	puzzle_instance.connect("puzzle_completed", Callable(self, "_on_puzzle_complete"))
+	puzzle_instance.puzzle_completed.connect(_on_puzzle_complete)
+	puzzle_instance.puzzle_restart.connect(_on_puzzle_restart.bind(puzzle, tile_id))
 	
 	puzzle_container.add_child(puzzle_instance)
 	_set_main_level_visibility(false)
 	puzzle_container.visible = true
+
 
 func _set_main_level_visibility(isVisible: bool) -> void:
 	main_tiles.visible = isVisible
