@@ -25,7 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://75uhio5lh74v" path="res://assets/Sprites/Castle.png" id="22_8q7k7"]
 [ext_resource type="Script" uid="uid://bvtilao4v1d3f" path="res://scripts/castle.gd" id="23_i83ko"]
 [ext_resource type="PackedScene" uid="uid://bi1p3xilrqqux" path="res://scenes/MarioControlsScene.tscn" id="24_x866t"]
-[ext_resource type="PackedScene" uid="uid://vhs0e1j5vula" path="res://scenes/falldown_area.tscn" id="26_yp3tk"]
+[ext_resource type="PackedScene" uid="uid://d0xedq3181dd0" path="res://scenes/falldown_area.tscn" id="26_yp3tk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dqcys"]
 texture = ExtResource("1_spspl")

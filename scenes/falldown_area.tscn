@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://vhs0e1j5vula"]
+[gd_scene load_steps=3 format=3 uid="uid://d0xedq3181dd0"]
 
-[ext_resource type="Script" uid="uid://t5gd1ywq70bg" path="res://scripts/falldown_area.gd" id="1_jixof"]
+[ext_resource type="Script" path="res://scripts/falldown_area.gd" id="1_jixof"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bwjmc"]
 size = Vector2(150, 20)
