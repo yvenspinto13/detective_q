@@ -154,7 +154,7 @@ func die():
 		
 		var death_tween = get_tree().create_tween()
 		death_tween.tween_property(self, "position", position + Vector2(0, -48), .5)
-		death_tween.chain().tween_property(self, "position", position + Vector2(0, 256), 1)
+		await death_tween.chain().tween_property(self, "position", position + Vector2(0, 256), 1).finished
 		Input.action_release("left")
 		Input.action_release("right")
 		Input.action_release("jump")

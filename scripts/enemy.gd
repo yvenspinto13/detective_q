@@ -9,6 +9,9 @@ const POINTS_LABEL_SCENE = preload("res://scenes/PointsLabel.tscn")
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+func _ready() -> void:
+	set_process(false)
+
 
 func _process(delta: float) -> void:
 	position.x -= delta * horizontal_speed
@@ -45,3 +48,6 @@ func _on_area_entered(area):
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
+	
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	set_process(true)

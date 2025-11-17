@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b3cjnvk7p5qhn"]
+[gd_scene load_steps=34 format=3 uid="uid://b3cjnvk7p5qhn"]
 
 [ext_resource type="Script" uid="uid://yxvkwdui20pg" path="res://scripts/mario_letter_hunt_scene.gd" id="1_6xyix"]
 [ext_resource type="Texture2D" uid="uid://bh2i2pbd72n30" path="res://assets/Sprites/GroundBlock.png" id="1_spspl"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://75uhio5lh74v" path="res://assets/Sprites/Castle.png" id="22_8q7k7"]
 [ext_resource type="Script" uid="uid://bvtilao4v1d3f" path="res://scripts/castle.gd" id="23_i83ko"]
 [ext_resource type="PackedScene" uid="uid://bi1p3xilrqqux" path="res://scenes/MarioControlsScene.tscn" id="24_x866t"]
+[ext_resource type="PackedScene" uid="uid://vhs0e1j5vula" path="res://scenes/falldown_area.tscn" id="26_yp3tk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dqcys"]
 texture = ExtResource("1_spspl")
@@ -310,5 +311,10 @@ rotation = -0.915101
 rotates = false
 
 [node name="CanvasLayer" parent="." instance=ExtResource("24_x866t")]
+
+[node name="FallDownAreas" type="Node" parent="."]
+
+[node name="FalldownArea" parent="FallDownAreas" instance=ExtResource("26_yp3tk")]
+position = Vector2(768, 118)
 
 [connection signal="body_entered" from="Castle" to="Castle" method="_on_body_entered"]
