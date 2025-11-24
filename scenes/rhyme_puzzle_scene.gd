@@ -11,6 +11,7 @@ var pairs = [
 ]
 
 var matched_pairs = 0
+var speech_enabled = false
 
 @onready var feedback_label = $PuzzleArea/PanelContainer/Feedback
 @onready var word_pairs_container = $WordPairs
@@ -26,6 +27,9 @@ func play_confetti():
 
 func _ready():
 	spawn_pairs()
+	if DisplayServer.has_feature(DisplayServer.Feature.FEATURE_TEXT_TO_SPEECH) and len(DisplayServer.tts_get_voices()) > 0:
+		speech_enabled = true
+		speak_text("Match the rhyming words! Touch and drag the puzzle piece from the left and drop it on the rhyming word on the right.")
 
 func spawn_pairs():
 	var y_offset = 120
@@ -56,14 +60,22 @@ func create_piece(word: String, match_word: String, is_left: bool) -> Control:
 	piece.match_word = match_word
 	piece.is_left = is_left
 	piece.connect("matched", Callable(self, "_on_piece_matched"))
+	piece.connect("fail_match", func():
+		speak_text("uh oh, not a matching piece, try again!"))
 	return piece
 
 func _on_piece_matched(word):
 	matched_pairs += 1
 	feedback_label.text = "Matched: %s!" % word
-
+	speak_text("Puzzle matched!")
+	
 	if matched_pairs == pairs.size():
 		feedback_label.text = "All rhymes matched! Puzzle solved!"
 		play_confetti()
 		await get_tree().create_timer(1.0).timeout
 		emit_signal("puzzle_completed", "toy_box")
+
+
+func speak_text(text: String) -> void:
+	if speech_enabled:
+		DisplayServer.tts_speak(text, GlobalSettings.default_language, GlobalSettings.master_volume, GlobalSettings.speech_pitch, GlobalSettings.speech_rate, 1)

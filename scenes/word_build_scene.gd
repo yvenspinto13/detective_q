@@ -33,6 +33,8 @@ func _ready():
 		if btn is Button:
 			_style_option_button(btn)
 			btn.pressed.connect(Callable(self, "_on_option_selected").bind(btn))
+	if DisplayServer.has_feature(DisplayServer.Feature.FEATURE_TEXT_TO_SPEECH) and len(DisplayServer.tts_get_voices()) > 0:
+		DisplayServer.tts_speak("Match the animals! Touch the animal picture and then touch what it is called", GlobalSettings.default_language, GlobalSettings.master_volume, GlobalSettings.speech_pitch, GlobalSettings.speech_rate, 1)
 
 
 # ---------------------------------------------------------

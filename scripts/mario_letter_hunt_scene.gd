@@ -8,6 +8,8 @@ signal puzzle_restart
 func _ready() -> void:
 	mario.castle_entered.connect(puzzle_complete)
 	mario.mario_die.connect(restart_puzzle)
+	if DisplayServer.has_feature(DisplayServer.Feature.FEATURE_TEXT_TO_SPEECH) and len(DisplayServer.tts_get_voices()) > 0:
+		DisplayServer.tts_speak("Hurry! Improve your score by making the detective collect all the letters that sound like at", GlobalSettings.default_language, GlobalSettings.master_volume, GlobalSettings.speech_pitch, GlobalSettings.speech_rate, 1)
 
 func puzzle_complete(): 
 	emit_signal("puzzle_completed", "signboard")

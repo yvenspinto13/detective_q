@@ -1,6 +1,7 @@
 extends Control
 
 signal matched(word)
+signal fail_match
 
 @export var word: String
 @export var match_word: String
@@ -74,3 +75,5 @@ func check_for_match():
 				#sibling.mouse_filter = Control.MOUSE_FILTER_IGNORE
 				sibling.queue_free()
 				queue_free()
+			else:
+				emit_signal("fail_match")

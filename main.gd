@@ -18,10 +18,19 @@ var mark_and_update_tile_call
 var virtual_joystick: Area2D
 
 func _ready() -> void:
+	if DisplayServer.has_feature(DisplayServer.Feature.FEATURE_TEXT_TO_SPEECH):
+		print("TTS feature available. Available voices:")
+		var voices = DisplayServer.tts_get_voices()
+		print("voices available", len(voices))
+		#for voice in voices:
+			#print("Name: %s, Language: %s" % [voice.name, voice.language])
 	# Connect the player's gate signal
 	player.puzzle_touched.connect(_on_puzzle_touched)
 	mark_and_update_tile_call = Callable(tile_layer, "mark_and_update_tile")
 	virtual_joystick = get_tree().get_first_node_in_group("virtual_joystick")
+	print("speka instructions")
+	await get_tree().create_timer(1.0).timeout
+	DisplayServer.tts_speak("Welcome to detectiveQ! Follow the brown path to solve puzzles and gain valuable clues. Use the joystick on the bottom left of your screen to move the detective.", GlobalSettings.default_language, GlobalSettings.master_volume, GlobalSettings.speech_pitch, GlobalSettings.speech_rate)
 
 
 func _on_puzzle_restart(puzzle: String, tile_id: int) -> void:
