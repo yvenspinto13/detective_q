@@ -42,7 +42,7 @@ text = "COINS: 0000"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_ua6yw")
 theme_override_font_sizes/font_size = 32
-text = "COLLECT: 'p'"
+text = "COLLECT: 'at'"
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
 visible = false

@@ -97,11 +97,11 @@ position = Vector2(-117, 31)
 
 [node name="AlphabetBox" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
 position = Vector2(-147, 31)
-alphabet = "p"
+alphabet = "at"
 
 [node name="AlphabetBox2" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
 position = Vector2(-132, 31)
-alphabet = "p"
+alphabet = "at"
 
 [node name="MysteryBox" parent="Environment/Bonuses" instance=ExtResource("8_qc0n0")]
 position = Vector2(218.213, -20)
@@ -113,7 +113,7 @@ alphabet = "d"
 
 [node name="AlphabetBox4" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
 position = Vector2(479, 40)
-alphabet = "p"
+alphabet = "at"
 
 [node name="AlphabetBox5" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
 position = Vector2(437, -14)
@@ -121,7 +121,7 @@ alphabet = "e"
 
 [node name="AlphabetBox6" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
 position = Vector2(453, -14)
-alphabet = "p"
+alphabet = "at"
 
 [node name="AlphabetBox7" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
 position = Vector2(469, -14)
@@ -129,7 +129,7 @@ alphabet = "d"
 
 [node name="AlphabetBox8" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
 position = Vector2(890, -10)
-alphabet = "p"
+alphabet = "at"
 
 [node name="AlphabetBox9" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
 position = Vector2(924, -73)
@@ -137,11 +137,11 @@ alphabet = "g"
 
 [node name="AlphabetBox10" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
 position = Vector2(923, -134)
-alphabet = "p"
+alphabet = "at"
 
 [node name="AlphabetBox11" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
 position = Vector2(1054, 35)
-alphabet = "p"
+alphabet = "at"
 
 [node name="AlphabetBox12" parent="Environment/Bonuses" instance=ExtResource("9_w1b34")]
 position = Vector2(1090, 9)
@@ -316,5 +316,7 @@ rotates = false
 
 [node name="FalldownArea" parent="FallDownAreas" instance=ExtResource("26_yp3tk")]
 position = Vector2(768, 118)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="body_entered" from="Castle" to="Castle" method="_on_body_entered"]

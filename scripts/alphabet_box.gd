@@ -5,14 +5,17 @@ class_name AlphabetBox
 const COIN_SCENE = preload("res://scenes/Coin.tscn")
 
 @onready var label: Label = $Sprite2D/Label
-
+@onready var audio_stream_player: AudioStreamPlayer = $"../../../AudioStreamPlayer"
 
 @export var alphabet: String = ""
 
 var is_empty = false
+var tts_enabled = false
 
 func _ready() -> void:
 	label.text = alphabet
+	# Brendan Heberlein, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons
+	audio_stream_player.stream = load("res://audio/æ_cat.ogg")
 	
 func bump(player_mode: Player.PlayerMode):
 	if is_empty:
@@ -21,9 +24,10 @@ func bump(player_mode: Player.PlayerMode):
 	super.bump(player_mode)
 	is_empty = true
 	
-	if label.text == 'p':
+	if label.text == 'at':
 		label.text=""
 		spawn_coin()
+		audio_stream_player.play()
 	else:
 		label.text = "X"
 		get_tree().get_first_node_in_group("level_manager").on_coin_removed()
