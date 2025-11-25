@@ -149,12 +149,18 @@ offset_bottom = 40.0
 position = Vector2(126, 516)
 
 [node name="SuccessLabel" type="Label" parent="."]
-offset_left = 381.0
-offset_top = 43.0
-offset_right = 893.0
-offset_bottom = 203.0
+offset_left = 408.0
+offset_top = 10.0
+offset_right = 880.0
+offset_bottom = 253.0
 theme_override_colors/font_color = Color(0.52549, 0.270588, 0.109804, 1)
 theme_override_fonts/font = ExtResource("16_nm5af")
 theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
-vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -10
+offset_right = 1283.0
+offset_bottom = 775.0
+color = Color(0.545098, 0.388235, 0.203922, 1)

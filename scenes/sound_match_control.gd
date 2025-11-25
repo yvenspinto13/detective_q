@@ -39,13 +39,14 @@ func _ready() -> void:
 	randomize()
 	if DisplayServer.has_feature(DisplayServer.Feature.FEATURE_TEXT_TO_SPEECH) and len(DisplayServer.tts_get_voices()) > 0:
 		DisplayServer.tts_set_utterance_callback(DisplayServer.TTS_UTTERANCE_ENDED, Callable(self, "_on_tts_completed"))
-		DisplayServer.tts_speak("Match the sound! Drag the detective in the middle of your screen and drop him in the corner that matches the animal sound with the animal name", GlobalSettings.default_language, GlobalSettings.master_volume, GlobalSettings.speech_pitch, GlobalSettings.speech_rate, 1)
+		DisplayServer.tts_speak("Match the sound! Drag the detective in the middle of your screen and drop him in the corner that matches the animal sound with the animal name", GlobalSettings.default_language, GlobalSettings.master_volume, GlobalSettings.speech_pitch, GlobalSettings.speech_rate, 125)
 	
 
 func _on_tts_completed(utterance_id: int)-> void:
-	if utterance_id == 1:
+	if utterance_id == 125:
 		_setup_round()
-	else:
+		ScoreManager.start_puzzle("gate")
+	elif utterance_id == 2:
 		ref_player.play()
 
 func _setup_round() -> void:
@@ -82,10 +83,12 @@ func _receive_drop(drop_target: Panel) -> void:
 			old_drop.border_color = Color(0, 1, 0)
 			play_confetti()
 			await get_tree().create_timer(1.0).timeout
+			ScoreManager.complete_puzzle("gate")
 			emit_signal("puzzle_completed", "gate" )
 		else:
 			DisplayServer.tts_speak("Wrong answer! Try again.", GlobalSettings.default_language, GlobalSettings.master_volume, GlobalSettings.speech_pitch, GlobalSettings.speech_rate, 2)
 			old_drop.border_color = Color(1, 0, 0)
+			ScoreManager.record_wrong_attempt("gate", "Selected '%s' instead of '%s'" % [label.text, "cat"])
 
 func _start_drag() -> void:
 	if old_drop:

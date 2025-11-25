@@ -37,18 +37,10 @@ func _ready():
 		if btn is Button:
 			_style_option_button(btn)
 			btn.pressed.connect(Callable(self, "_on_option_selected").bind(btn))
-
-	# Speak instruction if TTS available
-	if DisplayServer.has_feature(DisplayServer.Feature.FEATURE_TEXT_TO_SPEECH) \
-	and len(DisplayServer.tts_get_voices()) > 0:
-		DisplayServer.tts_speak(
-			"Match the animals! Touch the animal picture and then touch what it is called",
-			GlobalSettings.default_language,
-			GlobalSettings.master_volume,
-			GlobalSettings.speech_pitch,
-			GlobalSettings.speech_rate,
-			1
-		)
+	if DisplayServer.has_feature(DisplayServer.Feature.FEATURE_TEXT_TO_SPEECH) and len(DisplayServer.tts_get_voices()) > 0:
+		DisplayServer.tts_speak("Match the animals! Touch the animal picture and then touch what it is called", GlobalSettings.default_language, GlobalSettings.master_volume, GlobalSettings.speech_pitch, GlobalSettings.speech_rate, 1)
+	
+	ScoreManager.start_puzzle("tree_house")
 
 
 # ---------------------------------------------------------
@@ -163,6 +155,7 @@ func _on_option_selected(option: Button) -> void:
 
 	else:
 		_wrong_answer_animation(option)
+		ScoreManager.record_wrong_attempt("tree_house", "Selected wrong picture")
 		print("❌ Wrong match!")
 
 
@@ -222,6 +215,7 @@ func check_completion() -> void:
 
 	play_confetti()
 	await get_tree().create_timer(1.0).timeout
+	ScoreManager.complete_puzzle("tree_house")
 	emit_signal("puzzle_completed", "tree_house")
 
 

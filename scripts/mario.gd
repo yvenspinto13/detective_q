@@ -221,6 +221,7 @@ func go_to_castle():
 	run_to_castle_tween.tween_callback(finish)
 
 func finish():
+	set_physics_process(false)
 	queue_free()
 	print("emit castle")
 	castle_entered.emit()

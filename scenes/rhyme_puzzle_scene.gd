@@ -30,6 +30,7 @@ func _ready():
 	if DisplayServer.has_feature(DisplayServer.Feature.FEATURE_TEXT_TO_SPEECH) and len(DisplayServer.tts_get_voices()) > 0:
 		speech_enabled = true
 		speak_text("Match the rhyming words! Touch and drag the puzzle piece from the left and drop it on the rhyming word on the right.")
+	ScoreManager.start_puzzle("toy_box")
 
 func spawn_pairs():
 	var y_offset = 120
@@ -73,6 +74,7 @@ func _on_piece_matched(word):
 		feedback_label.text = "All rhymes matched! Puzzle solved!"
 		play_confetti()
 		await get_tree().create_timer(1.0).timeout
+		ScoreManager.complete_puzzle("toy_box")
 		emit_signal("puzzle_completed", "toy_box")
 
 

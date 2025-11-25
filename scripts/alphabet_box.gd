@@ -30,6 +30,7 @@ func bump(player_mode: Player.PlayerMode):
 		audio_stream_player.play()
 	else:
 		label.text = "X"
+		ScoreManager.record_wrong_attempt("signboard","Wrong alphabet chosen")
 		get_tree().get_first_node_in_group("level_manager").on_coin_removed()
 
 
