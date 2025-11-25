@@ -23,6 +23,7 @@ general/text_to_speech=true
 
 SceneData="*res://scripts/scene_data.gd"
 GlobalSettings="*res://scripts/global_settings.gd"
+ScoreManager="*res://scripts/score_manager.gd"
 
 [display]
 
