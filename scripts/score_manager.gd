@@ -121,8 +121,7 @@ func calculate_total_score() -> int:
 	return max(0, total_score) # Never negative
 
 # Get grade based on score
-func get_grade() -> String:
-	var score = calculate_total_score()
+func get_grade(score: int) -> String:
 	if score >= 900:
 		return "S"
 	elif score >= 800:
@@ -151,12 +150,13 @@ func get_total_game_time() -> float:
 
 # Generate summary report
 func get_summary_report() -> Dictionary:
+	var score = calculate_total_score()
 	return {
-		"total_score": 800, # calculate_total_score(),
-		"grade": "B",
-		"total_time": 200,
-		"total_wrong_attempts": 2,
-		"puzzles": {}
+		"total_score": score,
+		"grade": get_grade(score),
+		"total_time": get_total_game_time(),
+		"total_wrong_attempts": total_wrong_attempts,
+		"puzzles": puzzle_scores
 	}
 
 # Format time as MM:SS
