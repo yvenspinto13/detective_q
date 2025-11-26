@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7jxbg5v46mmg"]
+[gd_scene load_steps=9 format=3 uid="uid://c7jxbg5v46mmg"]
 
 [ext_resource type="Script" uid="uid://dem6gi0m7wbc4" path="res://scenes/word_build_scene.gd" id="1_7fts5"]
 [ext_resource type="Texture2D" uid="uid://ci1exx8rkqspc" path="res://assets/animals/elephant.png" id="1_snjmf"]
 [ext_resource type="Texture2D" uid="uid://bhb7ffx4ydtbq" path="res://assets/puzzle3background.png" id="2_7fts5"]
 [ext_resource type="Texture2D" uid="uid://2mvavftwetu1" path="res://assets/animals/cat.png" id="2_ckeks"]
+[ext_resource type="FontFile" uid="uid://cidj1g65p8cg2" path="res://hey_comic/Hey Comic.ttf" id="3_3yuec"]
 [ext_resource type="Texture2D" uid="uid://ds2eg6i5bfo5g" path="res://assets/animals/dog.png" id="3_ckeks"]
 [ext_resource type="StyleBox" uid="uid://8pv5iam0xq8o" path="res://scenes/Letters.tres" id="6_cwkwi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5ndi"]
+bg_color = Color(0.215902, 0.215902, 0.215902, 0.352941)
 
 [node name="WordBuildScene" type="Node2D"]
 position = Vector2(594, 409)
@@ -37,8 +41,11 @@ alignment = 1
 
 [node name="TitleLabel" type="Label" parent="UI/PuzzleUI"]
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_3yuec")
 theme_override_font_sizes/font_size = 36
-text = "Match the Animals!"
+theme_override_styles/normal = SubResource("StyleBoxFlat_h5ndi")
+text = " Match the Animals! "
 horizontal_alignment = 1
 
 [node name="PicturesContainer" type="HBoxContainer" parent="UI/PuzzleUI"]
@@ -81,16 +88,16 @@ alignment = 1
 [node name="OptionDog" type="Button" parent="UI/PuzzleUI/OptionsContainer"]
 custom_minimum_size = Vector2(140, 60)
 layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
 theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_styles/pressed = ExtResource("6_cwkwi")
 text = "Dog"
 
