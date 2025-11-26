@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvsnvl4xi5oal"]
+
+[ext_resource type="Script" uid="uid://b42i7vdcb8vv4" path="res://scripts/results.gd" id="1_t2lk1"]
+[ext_resource type="FontFile" uid="uid://cidj1g65p8cg2" path="res://hey_comic/Hey Comic.ttf" id="2_itncg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itncg"]
+bg_color = Color(1, 0.980392, 0.803922, 1)
+
+[node name="ResultsPanel" type="CanvasLayer"]
+script = ExtResource("1_t2lk1")
+
+[node name="OverlayPanel" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8)
+
+[node name="PanelContainer" type="PanelContainer" parent="OverlayPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -92.0
+offset_right = 136.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_itncg")
+
+[node name="MarginContainer" type="MarginContainer" parent="OverlayPanel/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ResultsContainer" type="VBoxContainer" parent="OverlayPanel/PanelContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="StarsContainer" type="HBoxContainer" parent="OverlayPanel/PanelContainer/MarginContainer/ResultsContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="OverlayPanel/PanelContainer/MarginContainer/ResultsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_itncg")
+theme_override_font_sizes/font_size = 32
+text = "Score: 800"
+horizontal_alignment = 1
+
+[node name="GradeLabel" type="Label" parent="OverlayPanel/PanelContainer/MarginContainer/ResultsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_itncg")
+theme_override_font_sizes/font_size = 32
+text = "Grade: A"
+horizontal_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="OverlayPanel/PanelContainer/MarginContainer/ResultsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_itncg")
+theme_override_font_sizes/font_size = 32
+text = "Time: 400"
+horizontal_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="OverlayPanel/PanelContainer/MarginContainer/ResultsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_itncg")
+theme_override_font_sizes/font_size = 32
+text = "You can do better"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -5,6 +5,9 @@ extends Node2D
 @onready var puzzle_container = $PuzzleContainer
 @onready var tile_layer = $TileMap
 @onready var success_label = $SuccessLabel
+@onready var color_rect: ColorRect = $ColorRect
+
+var results_overlay_scene = preload("res://scenes/ResultsScene.tscn")
 
 var puzzle_instance
 var puzzles_solved: Dictionary = {
@@ -16,6 +19,7 @@ var puzzles_solved: Dictionary = {
 var current_puzzle_tile = -1
 var mark_and_update_tile_call
 var virtual_joystick: Area2D
+var clue_count = 0
 
 func _ready() -> void:
 	if DisplayServer.has_feature(DisplayServer.Feature.FEATURE_TEXT_TO_SPEECH):
@@ -29,8 +33,11 @@ func _ready() -> void:
 	mark_and_update_tile_call = Callable(tile_layer, "mark_and_update_tile")
 	virtual_joystick = get_tree().get_first_node_in_group("virtual_joystick")
 	print("speka instructions")
+	success_label.text = "Clues: 0/4"
 	await get_tree().create_timer(1.0).timeout
 	DisplayServer.tts_speak("Welcome to detectiveQ! Follow the brown path to solve puzzles and gain valuable clues. Use the joystick on the bottom left of your screen to move the detective.", GlobalSettings.default_language, GlobalSettings.master_volume, GlobalSettings.speech_pitch, GlobalSettings.speech_rate)
+	ScoreManager.start_game()
+	
 
 
 func _on_puzzle_restart(puzzle: String, tile_id: int) -> void:
@@ -66,6 +73,8 @@ func _set_main_level_visibility(isVisible: bool) -> void:
 	player.visible = isVisible
 	virtual_joystick.visible = isVisible
 	virtual_joystick.set_process(isVisible)
+	success_label.visible = isVisible
+	color_rect.visible = isVisible
 
 func _on_puzzle_complete(puzzle: String) -> void:
 	print("clue:", puzzle)
@@ -80,9 +89,16 @@ func mark_solved(key: String) -> void:
 	print("i am called")
 	if puzzles_solved.has(key):
 		puzzles_solved[key] = true
+		clue_count += 1
+		success_label.text = "Clues: %d/4" %clue_count
 	for value in puzzles_solved.values():
 		print("Value:", value)
 		if value == false:
 			return
 	print("printing victory")
+	var report = ScoreManager.get_summary_report()
+	print("report", report)
 	success_label.text = "Hooray!! Level complete!\nYou found the cat!"
+	var overlay = results_overlay_scene.instantiate()
+	add_child(overlay)
+	overlay.show_results()
